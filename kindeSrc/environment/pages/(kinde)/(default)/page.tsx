@@ -17,7 +17,7 @@ const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
       <div className='container'>
         <main className='login-form-wrapper'>
           <div className='login-form'>
-            {process?.env?.KINDE_SITE_URL && (
+            {/* {process?.env?.KINDE_SITE_URL && (
               <>
                 <a
                   href={`${process.env.KINDE_SITE_URL}`}
@@ -61,7 +61,7 @@ const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
                   </div>
                 </a>
               </>
-            )}
+            )} */}
             {context.widget.content.heading && (
               <h2 className='heading'>{context.widget.content.heading}</h2>
             )}
