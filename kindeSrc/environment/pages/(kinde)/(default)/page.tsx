@@ -3,6 +3,7 @@
 import {
   getKindeWidget,
   getEnvironmentVariable,
+  fetch,
   type KindePageEvent,
 } from '@kinde/infrastructure';
 import React from 'react';
@@ -11,12 +12,16 @@ import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
 
 const DefaultPage: React.FC<KindePageEvent> = async({ context, request }) => {
-  const test = getEnvironmentVariable('KINDE_SITE_URL')
-  console.log('test', test);
+  const res = await fetch('https://.kinde.com/api/v1/environment_variables/',{
+    method: 'GET',
+    headers: {}
+  })
+  // const test = getEnvironmentVariable('KINDE_SITE_URL')
+  console.log('test', res);
   return (
     <Layout context={context} request={request}>
       <div className='container'>
-        <p>{test?.value}</p>
+        {/* <p>{test?.value}</p> */}
         <main className='login-form-wrapper'>
           <div className='login-form'>
             {context.widget.content.heading && (
