@@ -2,6 +2,7 @@
 
 import {
   getKindeWidget,
+  getEnvironmentVariable,
   type KindePageEvent,
 } from '@kinde/infrastructure';
 import React from 'react';
@@ -10,9 +11,12 @@ import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
 
 const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
+  const test = getEnvironmentVariable('KINDE_SITE_URL')
   return (
     <Layout context={context} request={request}>
       <div className='container'>
+        
+        <p>{test?.value}</p>
         <main className='login-form-wrapper'>
           <div className='login-form'>
             {context.widget.content.heading && (
