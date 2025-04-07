@@ -12,12 +12,13 @@ import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
 
 const DefaultPage: React.FC<KindePageEvent> = async({ context, request }) => {
-  const res = await fetch('https://.kinde.com/api/v1/environment_variables/',{
-    method: 'GET',
-    headers: {}
-  })
+  // const res = await fetch('https://.kinde.com/api/v1/environment_variables/',{
+  //   method: 'GET',
+  //   headers: {}
+  // })
   // const test = getEnvironmentVariable('KINDE_SITE_URL')
-  console.log('test', res);
+  // console.log('test', res);
+  console.log({context, request})
   return (
     <Layout context={context} request={request}>
       <div className='container'>
@@ -46,5 +47,7 @@ const DefaultPage: React.FC<KindePageEvent> = async({ context, request }) => {
 // Page Component
 export default async function Page(event: KindePageEvent): Promise<string> {
   const page = await DefaultPage(event);
+    const test = getEnvironmentVariable('KINDE_SITE_URL')
+  console.log({page,test})
   return renderToString(page);
 }
