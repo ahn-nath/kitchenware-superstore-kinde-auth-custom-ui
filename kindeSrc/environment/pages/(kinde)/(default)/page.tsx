@@ -6,11 +6,12 @@ import {
   fetch,
   type KindePageEvent,
 } from '@kinde/infrastructure';
-import { EnvironmentVariables } from "@kinde/management-api-js";
+import { init, EnvironmentVariables } from "@kinde/management-api-js";
 import React from 'react';
 // @ts-expect-error: renderToString is not available in the server environment
 import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
+
 
 const DefaultPage: React.FC<KindePageEvent> = async({ context, request }) => {
   // const res = await fetch('https://.kinde.com/api/v1/environment_variables/',{
@@ -19,6 +20,7 @@ const DefaultPage: React.FC<KindePageEvent> = async({ context, request }) => {
   // })
   // const test = getEnvironmentVariable('KINDE_SITE_URL')
   // console.log('test', res);
+  init()
   const test = await EnvironmentVariables.getEnvironmentVariable({variableId:'KINDE_SITE_URL'})
   console.log({test})
   return (
