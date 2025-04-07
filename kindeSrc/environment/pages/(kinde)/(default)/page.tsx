@@ -10,12 +10,12 @@ import React from 'react';
 import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
 
-const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
+const DefaultPage: React.FC<KindePageEvent> = async({ context, request }) => {
   const test = getEnvironmentVariable('KINDE_SITE_URL')
+  console.log('test', test);
   return (
     <Layout context={context} request={request}>
       <div className='container'>
-        
         <p>{test?.value}</p>
         <main className='login-form-wrapper'>
           <div className='login-form'>
