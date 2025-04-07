@@ -6,19 +6,21 @@ import {
   fetch,
   type KindePageEvent,
 } from '@kinde/infrastructure';
+import { EnvironmentVariables } from "@kinde/management-api-js";
 import React from 'react';
 // @ts-expect-error: renderToString is not available in the server environment
 import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
 
-const DefaultPage: React.FC<KindePageEvent> = async({ context, request, ...rest }) => {
+const DefaultPage: React.FC<KindePageEvent> = async({ context, request }) => {
   // const res = await fetch('https://.kinde.com/api/v1/environment_variables/',{
   //   method: 'GET',
   //   headers: {}
   // })
   // const test = getEnvironmentVariable('KINDE_SITE_URL')
   // console.log('test', res);
-  console.log({context, request,rest})
+  const test = await EnvironmentVariables.getEnvironmentVariable({variableId:'KINDE_SITE_URL'})
+  console.log({test})
   return (
     <Layout context={context} request={request}>
       <div className='container'>
@@ -47,8 +49,5 @@ const DefaultPage: React.FC<KindePageEvent> = async({ context, request, ...rest 
 // Page Component
 export default async function Page(event: KindePageEvent): Promise<string> {
   const page = await DefaultPage(event);
-    const test = getEnvironmentVariable('KINDE_SITE_URL')
-  console.log({page,test})
-  const data = {page, ...test}
-  return renderToString(data);
+  return renderToString(page);
 }
