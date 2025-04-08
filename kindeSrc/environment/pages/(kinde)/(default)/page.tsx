@@ -1,9 +1,9 @@
 'use server';
 
 import {
+  getDarkModeLogoUrl,
   getKindeWidget,
-  getEnvironmentVariable,
-  fetch,
+  getLogoUrl,
   type KindePageEvent,
 } from '@kinde/infrastructure';
 
@@ -11,24 +11,54 @@ import React from 'react';
 // @ts-expect-error: renderToString is not available in the server environment
 import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
-import { getSiteUrl } from '@/app/actions/misc';
 
-
-const DefaultPage: React.FC<KindePageEvent> = async({ context, request }) => {
-  // const res = await fetch('https://.kinde.com/api/v1/environment_variables/',{
-  //   method: 'GET',
-  //   headers: {}
-  // })
-  // const test = getEnvironmentVariable('KINDE_SITE_URL')
-  // console.log('test', res);
-  const test = await getSiteUrl()
-  console.log({test})
+const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
   return (
     <Layout context={context} request={request}>
       <div className='container'>
-        {/* <p>{test?.value}</p> */}
         <main className='login-form-wrapper'>
           <div className='login-form'>
+            <a
+              href='https://kwss-kitchenwarehouse.frontend.site/'
+              className='back-to-site'
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                className='icon icon-tabler icons-tabler-outline icon-tabler-circle-arrow-left'
+              >
+                <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+                <path d='M12 21a9 9 0 1 0 0 -18a9 9 0 0 0 0 18' />
+                <path d='M8 12l4 4' />
+                <path d='M8 12h8' />
+                <path d='M12 8l-4 4' />
+              </svg>
+              Back to site
+            </a>
+            <a href='https://kwss-kitchenwarehouse.frontend.site/'>
+              <div className='logo-wrapper'>
+                <picture>
+                  <source
+                    media='(prefers-color-scheme: dark)'
+                    srcSet={getDarkModeLogoUrl()}
+                  />
+                  <img
+                    className='logo'
+                    src={getLogoUrl()}
+                    alt={context.widget.content.logoAlt}
+                    width={152}
+                    height={32}
+                  />
+                </picture>
+              </div>
+            </a>
             {context.widget.content.heading && (
               <h2 className='heading'>{context.widget.content.heading}</h2>
             )}
