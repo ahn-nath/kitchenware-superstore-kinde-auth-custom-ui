@@ -1,8 +1,9 @@
 'use server';
 
 import {
+  getDarkModeLogoUrl,
   getKindeWidget,
-  fetch,
+  getLogoUrl,
   type KindePageEvent,
 } from '@kinde/infrastructure';
 import React from 'react';
@@ -10,26 +11,13 @@ import React from 'react';
 import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
 
-const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
-  const res = await fetch(
-    'https://cdn.builder.io/api/v3/content/login-page-data?apiKey=6c476b9f79974e74ace7fa278e8bc666',
-    {
-      headers: {},
-      method: 'GET',
-    }
-  );
-  const loginPageImage = res?.data?.results?.[0]?.data?.loginPageImage || null;
-  console.log('res',res?.data?.results?.[0]);
+const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
   return (
-    <Layout
-      context={context}
-      request={request}
-      props={res?.data?.results?.[0]?.data}
-    >
+    <Layout context={context} request={request}>
       <div className='container'>
         <main className='login-form-wrapper'>
           <div className='login-form'>
-            {/* <a
+            <a
               href='https://kwss-kitchenwarehouse.frontend.site/'
               className='back-to-site'
             >
@@ -52,8 +40,24 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
                 <path d='M12 8l-4 4' />
               </svg>
               Back to site
-            </a> */}
-
+            </a>
+            <a href='https://kwss-kitchenwarehouse.frontend.site/'>
+              <div className='logo-wrapper'>
+                <picture>
+                  <source
+                    media='(prefers-color-scheme: dark)'
+                    srcSet={getDarkModeLogoUrl()}
+                  />
+                  <img
+                    className='logo'
+                    src={getLogoUrl()}
+                    alt={context.widget.content.logoAlt}
+                    width={152}
+                    height={32}
+                  />
+                </picture>
+              </div>
+            </a>
             {context.widget.content.heading && (
               <h2 className='heading'>{context.widget.content.heading}</h2>
             )}
@@ -61,15 +65,13 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
             {getKindeWidget()}
           </div>
         </main>
-        {loginPageImage && (
-          <div className='side-panel'>
-            <img
-              className='side-panel-image'
-              src={loginPageImage}
-              alt='image'
-            />
-          </div>
-        )}
+        <div className='side-panel'>
+          <img
+            className='side-panel-image'
+            src='https://media.kitchenwarehouse.com.au/image/upload/Kitchen%20Warehouse%20Images%20/kinde_login.png'
+            alt='image'
+          />
+        </div>
       </div>
     </Layout>
   );
