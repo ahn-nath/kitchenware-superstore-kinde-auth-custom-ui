@@ -4,6 +4,7 @@ import {
   getDarkModeLogoUrl,
   getKindeWidget,
   getLogoUrl,
+  fetch,
   type KindePageEvent,
 } from '@kinde/infrastructure';
 import React from 'react';
