@@ -150,10 +150,13 @@ export const Layout = ({
         </style>
       </head>
       <body>
-        <div data-roast-root='true' data-kinde-root='true'>
+        <div data-roast-root='true' data-kinde-root='true' className='border-2 border-red-500'>
           {children}
         </div>
       </body>
+      <footer>
+        
+      </footer>
     </html>
   );
 };
