@@ -6,15 +6,12 @@ import {
   getLogoUrl,
   type KindePageEvent,
 } from '@kinde/infrastructure';
-
 import React from 'react';
 // @ts-expect-error: renderToString is not available in the server environment
 import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
 
-const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
-  console.log('context', context);
-  console.log('request', request);
+const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
   return (
     <Layout context={context} request={request}>
       <div className='container'>
