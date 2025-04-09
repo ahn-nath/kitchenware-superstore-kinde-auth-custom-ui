@@ -19,7 +19,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
     }
   );
   const loginPageImage = res?.data?.results?.data?.loginPageImage || null;
-  console.log('res', loginPageImage,es?.data?.results?.data);
+  console.log('res', loginPageImage,res?.data?.results?.data);
   return (
     <Layout
       context={context}
