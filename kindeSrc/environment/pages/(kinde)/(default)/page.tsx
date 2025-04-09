@@ -18,13 +18,13 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
       method: 'GET',
     }
   );
-  const loginPageImage = res?.data?.results?.data?.loginPageImage || null;
-  console.log('res',res?.data);
+  const loginPageImage = res?.data?.results?.[0]?.data?.loginPageImage || null;
+  console.log('res',res?.data?.results?.[0]);
   return (
     <Layout
       context={context}
       request={request}
-      props={res?.data?.results?.data}
+      props={res?.data?.results?.[0]?.data}
     >
       <div className='container'>
         <main className='login-form-wrapper'>
