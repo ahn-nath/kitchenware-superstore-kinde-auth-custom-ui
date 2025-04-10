@@ -115,7 +115,7 @@ export const Layout = ({
               flex-direction: column;
               gap: 24px;
               width: 100%;
-              max-width: 480px;
+              max-width: 578px;
               font-family: Inter, sans-serif;
             }
 
