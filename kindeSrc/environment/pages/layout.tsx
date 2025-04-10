@@ -73,6 +73,7 @@ export const Layout = ({
             .content-container {
               display:flex;
               margin: 0 auto;
+              flex: 1 0 0;
             }
 
             .container {
@@ -191,7 +192,7 @@ export const Layout = ({
               }
               .side-panel-image {
                 width: 100%;
-                height: calc(100vh - 249px);
+                height: calc(100vh - 233px);
                 object-fit: cover;
               }
             }
