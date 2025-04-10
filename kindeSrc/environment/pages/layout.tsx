@@ -66,10 +66,17 @@ export const Layout = ({
             .secure-login-container{
               display: flex;
               align-items: center;
+              gap: 0.5rem;
             }
 
             .secure-login {
+              font-family: Inter, sans-serif;
               color: #666666;
+              font-size: 0.875rem;
+              line-height: 1.25rem;
+              letter-spacing: -0.14px;
+              margin: 0;
+              font-weight: 600;
             }
 
             .content-container {
@@ -222,7 +229,7 @@ export const Layout = ({
                   </div>
                 </a>
                 <div className='secure-login-container'>
-                  <div className='secure-gogin'>Secure login</div>
+                  <div className='secure-login'>Secure login</div>
                   <svg
                     width='24'
                     height='24'
