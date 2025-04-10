@@ -25,9 +25,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
     signInFormTextBottom,
     signupFormTextBottom,
   } = res?.data?.results?.[0]?.data || {};
-  console.log('res', context, request);
   const isUserOnLoginOrRegisterPage = request?.route?.flow;
-  console.log('isUserOnLoginOrRegisterPage', isUserOnLoginOrRegisterPage);
   return (
     <Layout
       context={context}
