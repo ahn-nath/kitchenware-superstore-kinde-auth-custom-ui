@@ -11,10 +11,36 @@ import React from 'react';
 import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
 
-const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
-  console.log({context, request})
+interface LoginPageData {
+  data: {
+    results: Array<{
+      data: {
+        loginPageImage?: string;
+        logo?: string;
+        helpText?: string;
+        helpNumber?: string;
+        paymentLogos?: { name: string; image: string }[];
+      };
+    }>;
+  };
+}
+
+const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
+  const res: LoginPageData = await fetch(
+    'https://cdn.builder.io/api/v3/content/login-page-data?apiKey=6c476b9f79974e74ace7fa278e8bc666&sort.createdDate=-1',
+    {
+      headers: {},
+      method: 'GET',
+    }
+  ).then((response) => response.json());
+  const loginPageImage = res?.data?.results?.[0]?.data?.loginPageImage || null;
+  console.log('res', context, request);
   return (
-    <Layout context={context} request={request}>
+    <Layout
+      context={context}
+      request={request}
+      props={res?.data?.results?.[0]?.data}
+    >
       <div className='container'>
         <main className='login-form-wrapper'>
           <div className='login-form'>
@@ -66,13 +92,15 @@ const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
             {getKindeWidget()}
           </div>
         </main>
-        <div className='side-panel'>
-          <img
-            className='side-panel-image'
-            src='https://media.kitchenwarehouse.com.au/image/upload/Kitchen%20Warehouse%20Images%20/kinde_login.png'
-            alt='image'
-          />
-        </div>
+        {loginPageImage && (
+          <div className='side-panel'>
+            <img
+              className='side-panel-image'
+              src={loginPageImage}
+              alt='image'
+            />
+          </div>
+        )}
       </div>
     </Layout>
   );
