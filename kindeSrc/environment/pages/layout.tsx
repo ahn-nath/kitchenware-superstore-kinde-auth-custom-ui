@@ -15,7 +15,7 @@ interface LayoutProps extends KindePageEvent {
     logo?: string;
     helpText?: string;
     helpNumber?: string;
-    paymentLogos?: { name: string; image: string }[];
+    paymentLogos?: { name: string; paymentImageUrl: string }[];
   };
 }
 
@@ -24,7 +24,6 @@ export const Layout = ({
   context,
   children,
   props,
-
 }: LayoutProps): React.JSX.Element => {
   console.log('props', props);
 
@@ -309,16 +308,19 @@ export const Layout = ({
                 }}
               >
                 {paymentLogos?.map(
-                  (logo: { name: string; image: string }, index: number) => {
+                  (
+                    logo: { name: string; paymentImageUrl: string },
+                    index: number
+                  ) => {
                     return (
-                      logo?.image && (
+                      logo?.paymentImageUrl && (
                         <div key={index}>
                           <img
                             alt={logo.name}
                             loading='lazy'
                             width='62'
                             height='40'
-                            src={logo.image}
+                            src={logo.paymentImageUrl}
                           />
                         </div>
                       )
