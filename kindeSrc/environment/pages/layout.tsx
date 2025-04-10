@@ -206,7 +206,7 @@ export const Layout = ({
           `}
         </style>
       </head>
-      <body>
+      <body style={{display:'flex', flexDirection: 'column'}}>
         {logo && (
           <header>
             <div className='header-container'>
@@ -265,7 +265,6 @@ export const Layout = ({
               style={{
                 borderTop: '1px solid #e6e6e6',
                 width: '100%',
-                marginTop: '1.5rem',
               }}
             />
             <div
