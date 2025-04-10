@@ -49,7 +49,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
             <p className='description'>{context.widget.content.description}</p>
             {getKindeWidget()}
           </div>
-          {signInFormTextBottom && (
+          {signInFormTextBottom && isUserOnLoginOrRegisterPage === 'login' && (
             <div
               dangerouslySetInnerHTML={{ __html: `${signInFormTextBottom}` }}
             />
@@ -61,7 +61,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
               />
             )}
         </main>
-        {loginPageImage && isUserOnLoginOrRegisterPage === 'login' && (
+        {loginPageImage && (
           <div className='side-panel'>
             <img
               className='side-panel-image'

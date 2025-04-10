@@ -70,7 +70,6 @@ export const Layout = ({
               @media screen and (max-width: 1023px) {
                 flex-direction: column;
                 padding: 20px;
-                height: calc(100vh - 232px);
               }
             }
 
@@ -86,7 +85,7 @@ export const Layout = ({
               display: flex;
               flex-direction: column;
               width: 100%;
-              gap: 120px;
+              gap: 60px;
               justify-content: center;
               align-items: center;
               flex: 1 0 0;
@@ -174,7 +173,7 @@ export const Layout = ({
               }
               .side-panel-image {
                 width: 100%;
-                height: calc(100vh - 240px);
+                height: calc(100vh - 290px);
                 object-fit: cover;
               }
             }
