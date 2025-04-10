@@ -374,8 +374,8 @@ export const Layout = ({
                               <img
                                 alt={logo.name}
                                 loading='lazy'
-                                width='62'
-                                height='40'
+                                width='37'
+                                height='23'
                                 src={logo.paymentImageUrl}
                               />
                             </picture>
