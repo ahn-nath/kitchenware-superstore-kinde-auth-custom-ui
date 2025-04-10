@@ -84,9 +84,11 @@ export const Layout = ({
 
             .login-form-wrapper {
               display: flex;
+              flex-direction: column;
               width: 100%;
               gap: 120px;
               justify-content: center;
+              align-items: center;
               flex: 1 0 0;
             }
 

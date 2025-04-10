@@ -26,6 +26,8 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
     signupFormTextBottom,
   } = res?.data?.results?.[0]?.data || {};
   console.log('res', context, request);
+  const isUserOnLoginOrRegisterPage = request?.route?.flow;
+  console.log('isUserOnLoginOrRegisterPage', isUserOnLoginOrRegisterPage);
   return (
     <Layout
       context={context}
@@ -34,8 +36,11 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
     >
       <div className='container'>
         <main className='login-form-wrapper'>
-          {signInFormTextTop && (
+          {signInFormTextTop && isUserOnLoginOrRegisterPage === 'login' && (
             <div dangerouslySetInnerHTML={{ __html: `${signInFormTextTop}` }} />
+          )}
+          {signupFormTextTop && isUserOnLoginOrRegisterPage === 'register' && (
+            <div dangerouslySetInnerHTML={{ __html: `${signupFormTextTop}` }} />
           )}
           <div className='login-form'>
             {context.widget.content.heading && (
@@ -49,8 +54,14 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
               dangerouslySetInnerHTML={{ __html: `${signInFormTextBottom}` }}
             />
           )}
+          {signupFormTextBottom &&
+            isUserOnLoginOrRegisterPage === 'register' && (
+              <div
+                dangerouslySetInnerHTML={{ __html: `${signupFormTextBottom}` }}
+              />
+            )}
         </main>
-        {loginPageImage && (
+        {loginPageImage && isUserOnLoginOrRegisterPage === 'login' && (
           <div className='side-panel'>
             <img
               className='side-panel-image'
