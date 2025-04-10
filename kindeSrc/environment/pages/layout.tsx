@@ -206,7 +206,7 @@ export const Layout = ({
           `}
         </style>
       </head>
-      <body style={{display:'flex', flexDirection: 'column'}}>
+      <body style={{ display: 'flex', flexDirection: 'column' }}>
         {logo && (
           <header>
             <div className='header-container'>
