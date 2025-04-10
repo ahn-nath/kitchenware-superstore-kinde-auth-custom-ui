@@ -199,7 +199,6 @@ export const Layout = ({
               }
               .side-panel-image {
                 width: 100%;
-                height: calc(100vh - 290px);
                 object-fit: cover;
               }
             }
