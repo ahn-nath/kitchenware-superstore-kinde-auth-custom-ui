@@ -8,7 +8,7 @@ import {
 import React from 'react';
 // @ts-expect-error: renderToString is not available in the server environment
 import { renderToString } from 'react-dom/server.browser';
-import Layout from '@/kindeSrc/environment/pages/layout';
+import Layout from '../../layout';
 
 const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
   const res = await fetch(
