@@ -72,6 +72,11 @@ export const Layout = ({
               color: #666666;
             }
 
+            .content-container {
+              display:flex;
+              flex: 1 0 0;
+            }
+
             .container {
               display: flex;
               width: 100%;
@@ -98,6 +103,11 @@ export const Layout = ({
               justify-content: center;
               align-items: center;
               flex: 1 0 0;
+            }
+
+            .signInFormTextTopText, .signupFormTextTopText, .signInFormTextBottomText, .signupFormTextBottom {
+                color: #1A1A1A;
+                font-family: Inter, sans-serif;
             }
 
             .login-form {
@@ -212,9 +222,7 @@ export const Layout = ({
                   </div>
                 </a>
                 <div className='secure-login-container'>
-                  <div className='secure-gogin'>
-                    Secure login
-                  </div>
+                  <div className='secure-gogin'>Secure login</div>
                   <svg
                     width='24'
                     height='24'
@@ -236,7 +244,11 @@ export const Layout = ({
             </div>
           </header>
         )}
-        <main data-roast-root='true' data-kinde-root='true'>
+        <main
+          data-roast-root='true'
+          data-kinde-root='true'
+          className='content-container'
+        >
           {children}
         </main>
         <footer>

@@ -37,10 +37,16 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
       <div className='container'>
         <main className='login-form-wrapper'>
           {signInFormTextTop && isUserOnLoginOrRegisterPage === 'login' && (
-            <div dangerouslySetInnerHTML={{ __html: `${signInFormTextTop}` }} />
+            <div
+              className='signInFormTextTopText'
+              dangerouslySetInnerHTML={{ __html: `${signInFormTextTop}` }}
+            />
           )}
           {signupFormTextTop && isUserOnLoginOrRegisterPage === 'register' && (
-            <div dangerouslySetInnerHTML={{ __html: `${signupFormTextTop}` }} />
+            <div
+              className='signupFormTextTopText'
+              dangerouslySetInnerHTML={{ __html: `${signupFormTextTop}` }}
+            />
           )}
           <div className='login-form'>
             {context.widget.content.heading && (
@@ -51,12 +57,14 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
           </div>
           {signInFormTextBottom && isUserOnLoginOrRegisterPage === 'login' && (
             <div
+              className='signInFormTextBottomText'
               dangerouslySetInnerHTML={{ __html: `${signInFormTextBottom}` }}
             />
           )}
           {signupFormTextBottom &&
             isUserOnLoginOrRegisterPage === 'register' && (
               <div
+                className='signupFormTextBottom'
                 dangerouslySetInnerHTML={{ __html: `${signupFormTextBottom}` }}
               />
             )}
