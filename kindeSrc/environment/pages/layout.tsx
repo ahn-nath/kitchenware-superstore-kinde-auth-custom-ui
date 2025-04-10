@@ -25,9 +25,7 @@ export const Layout = ({
   children,
   props,
 }: LayoutProps): React.JSX.Element => {
-  console.log('props', props);
-
-  const { logo, helpText, helpNumber, paymentLogos } = props ?? {};
+  const { logo, helpText, helpNumber, paymentLogos} = props ?? {};
 
   return (
     <html lang={request.locale.lang}>

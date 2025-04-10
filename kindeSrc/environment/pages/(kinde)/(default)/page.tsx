@@ -17,9 +17,15 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
       headers: {},
       method: 'GET',
     }
-  )
-  const loginPageImage = res?.data?.results?.[0]?.data?.loginPageImage || null;
-  console.log('res', res);
+  );
+  const {
+    loginPageImage,
+    signInFormTextTop,
+    signupFormTextTop,
+    signInFormTextBottom,
+    signupFormTextBottom,
+  } = res?.data?.results?.[0]?.data || {};
+  console.log('res', context, request);
   return (
     <Layout
       context={context}
@@ -28,6 +34,9 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
     >
       <div className='container'>
         <main className='login-form-wrapper'>
+          {signInFormTextTop && (
+            <div dangerouslySetInnerHTML={{ __html: `${signInFormTextTop}` }} />
+          )}
           <div className='login-form'>
             {context.widget.content.heading && (
               <h2 className='heading'>{context.widget.content.heading}</h2>
@@ -35,6 +44,11 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
             <p className='description'>{context.widget.content.description}</p>
             {getKindeWidget()}
           </div>
+          {signInFormTextBottom && (
+            <div
+              dangerouslySetInnerHTML={{ __html: `${signInFormTextBottom}` }}
+            />
+          )}
         </main>
         {loginPageImage && (
           <div className='side-panel'>
