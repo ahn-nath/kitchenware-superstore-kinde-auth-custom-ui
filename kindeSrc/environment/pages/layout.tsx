@@ -100,7 +100,7 @@ export const Layout = ({
               display: flex;
               flex-direction: column;
               width: 100%;
-              gap: 60px;
+              gap: 20px;
               justify-content: center;
               align-items: center;
               flex: 1 0 0;
