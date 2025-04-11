@@ -26,7 +26,6 @@ export const Layout = ({
   props,
 }: LayoutProps): React.JSX.Element => {
   const { logo, helpText, helpNumber, paymentLogos } = props ?? {};
-
   return (
     <html lang={request.locale.lang}>
       <head>
@@ -73,7 +72,7 @@ export const Layout = ({
             .content-container {
               display:flex;
               margin: 0 auto;
-              max-width: 1440px
+              max-width: 1440px;
               flex: 1 0 0;
             }
 
