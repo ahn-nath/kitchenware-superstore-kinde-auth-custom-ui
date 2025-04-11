@@ -73,6 +73,7 @@ export const Layout = ({
             .content-container {
               display:flex;
               margin: 0 auto;
+              max-width: 1440px
               flex: 1 0 0;
             }
 
