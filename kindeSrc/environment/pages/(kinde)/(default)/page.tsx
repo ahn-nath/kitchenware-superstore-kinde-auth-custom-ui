@@ -37,13 +37,17 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
           {signInFormTextTop && isUserOnLoginOrRegisterPage === 'login' && (
             <div
               className='signInFormTextTopText'
-              dangerouslySetInnerHTML={{ __html: `${signInFormTextTop}` }}
+              dangerouslySetInnerHTML={{
+                __html: `<pre>${signInFormTextTop}</pre>`,
+              }}
             />
           )}
           {signupFormTextTop && isUserOnLoginOrRegisterPage === 'register' && (
             <div
               className='signupFormTextTopText'
-              dangerouslySetInnerHTML={{ __html: `${signupFormTextTop}` }}
+              dangerouslySetInnerHTML={{
+                __html: `<pre>${signupFormTextTop}</pre>`,
+              }}
             />
           )}
           <div className='login-form'>
@@ -56,24 +60,30 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
           {signInFormTextBottom && isUserOnLoginOrRegisterPage === 'login' && (
             <div
               className='signInFormTextBottomText'
-              dangerouslySetInnerHTML={{ __html: `${signInFormTextBottom}` }}
+              dangerouslySetInnerHTML={{
+                __html: `<pre>${signInFormTextBottom}</pre>`,
+              }}
             />
           )}
           {signupFormTextBottom &&
             isUserOnLoginOrRegisterPage === 'register' && (
               <div
                 className='signupFormTextBottom'
-                dangerouslySetInnerHTML={{ __html: `${signupFormTextBottom}` }}
+                dangerouslySetInnerHTML={{
+                  __html: `<pre>${signupFormTextBottom}</pre>`,
+                }}
               />
             )}
         </div>
         {loginPageImage && (
           <div className='side-panel'>
-            <img
-              className='side-panel-image'
-              src={loginPageImage}
-              alt='image'
-            />
+            <picture>
+              <img
+                className='side-panel-image'
+                src={loginPageImage}
+                alt='image'
+              />
+            </picture>
           </div>
         )}
       </div>
