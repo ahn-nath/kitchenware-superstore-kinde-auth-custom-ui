@@ -1,4 +1,4 @@
-'use server';
+'use client';
 
 import React, { useMemo, useState } from 'react'
 import classNames from 'classnames'
