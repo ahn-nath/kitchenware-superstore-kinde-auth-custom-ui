@@ -446,9 +446,9 @@ export const Layout = ({
               const spinner = document.createElement('div');
               spinner.className = 'custom-spinner';
               
-              const loadingText = document.createElement('p');
-              loadingText.innerText = 'Loading...';
-              loadingText.style.marginTop = '10px';
+              // const loadingText = document.createElement('p');
+              // loadingText.innerText = 'Loading...';
+              // loadingText.style.marginTop = '10px';
               
               // Add elements to DOM
               loadingOverlay.appendChild(spinner);
@@ -492,7 +492,7 @@ export const Layout = ({
                   // Set a backup timeout to hide the loader if navigation doesn't complete
                   navigationTimeout = setTimeout(() => {
                     loadingOverlay.classList.add('auth-loading-hidden');
-                  }, 5000); // 5 second timeout as fallback
+                  }, 1000); // 1 second timeout as fallback
                 }
               });
               
