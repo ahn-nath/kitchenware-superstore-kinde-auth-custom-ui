@@ -394,8 +394,78 @@ export const Layout = ({
                 border-radius: 4px;
               }
             }
+
+            /* Loading Styles */
+            .auth-loading-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(255, 255, 255, 0.9);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              z-index: 1000;
+              transition: opacity 0.3s;
+            }
+            
+            .auth-loading-hidden {
+              opacity: 0;
+              pointer-events: none;
+            }
             `}
         </style>
+        <script nonce={getKindeNonce()} dangerouslySetInnerHTML={{
+          __html: `
+            // Create loading overlay
+            document.addEventListener('DOMContentLoaded', function() {
+              // Create loading elements
+              const loadingOverlay = document.createElement('div');
+              loadingOverlay.className = 'auth-loading-overlay';
+              loadingOverlay.id = 'kinde-auth-loader';
+              
+              const spinner = document.createElement('div');
+              spinner.className = 'loading-spinner';
+              
+              const loadingText = document.createElement('p');
+              loadingText.innerText = 'Loading...';
+              loadingText.style.marginTop = '10px';
+              
+              // Add elements to DOM
+              loadingOverlay.appendChild(spinner);
+              loadingOverlay.appendChild(loadingText);
+              document.body.appendChild(loadingOverlay);
+              
+              // Show loader initially
+              loadingOverlay.classList.remove('auth-loading-hidden');
+              
+              // Hide loader when page is fully loaded
+              window.addEventListener('load', function() {
+                setTimeout(() => {
+                  loadingOverlay.classList.add('auth-loading-hidden');
+                }, 300);
+              });
+              
+              // Show loader on any link click within authentication pages
+              document.addEventListener('click', function(e) {
+                const closestLink = e.target.closest('a');
+                const closestButton = e.target.closest('button');
+                
+                if ((closestLink && closestLink.href) || 
+                    (closestButton && closestButton.type === 'submit')) {
+                  loadingOverlay.classList.remove('auth-loading-hidden');
+                }
+              });
+              
+              // Handle form submissions
+              document.addEventListener('submit', function(e) {
+                loadingOverlay.classList.remove('auth-loading-hidden');
+              });
+            });
+          `
+        }} />
       </head>
       <body style={{ display: 'flex', flexDirection: 'column' }}>
         {logo && (
