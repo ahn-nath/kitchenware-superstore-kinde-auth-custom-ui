@@ -39,227 +39,6 @@ export const Layout = ({
         <style nonce={getKindeNonce()}>
           {`
 
-            :root {
-              --typography-primary-font-family: Inter, system-ui, sans-serif;
-
-              /* Display 2XL */
-              --typography-display-2xl-font-family: var(--typography-primary-font-family);
-              --typography-display-2xl-font-size: 4.5rem; // 72px
-              --typography-display-2xl-font-style: normal;
-              --typography-display-2xl-font-weight: 600;
-              --typography-display-2xl-line-height: 5.625rem; // 90px
-              --typography-display-2xl-letter-spacing: -1.44px;
-              --typography-display-2xl-font-variation-settings: 'wght' 600, 'opsz' 32;
-
-              --typography-display-2xl-mobile-font-family: var(--typography-primary-font-family);
-              --typography-display-2xl-mobile-font-size: 2.75rem; // 44px
-              --typography-display-2xl-mobile-font-style: normal;
-              --typography-display-2xl-mobile-font-weight: 600;
-              --typography-display-2xl-mobile-line-height: 3.5625rem; // 57px
-              --typography-display-2xl-mobile-letter-spacing: -0.88px;
-              --typography-display-2xl-mobile-font-variation-settings: 'wght' 600, 'opsz' 32;
-
-              /* Display XL */
-              --typography-display-xl-font-family: var(--typography-primary-font-family);
-              --typography-display-xl-font-size: 3.75rem; // 60px
-              --typography-display-xl-font-style: normal;
-              --typography-display-xl-font-weight: 600;
-              --typography-display-xl-line-height: 4.5rem; // 72px
-              --typography-display-xl-letter-spacing: -1.8px;
-              --typography-display-xl-font-variation-settings: 'wght' 600, 'opsz' 32;
-
-              --typography-display-xl-mobile-font-family: var(--typography-primary-font-family);
-              --typography-display-xl-mobile-font-size: 2.25rem; // 36px
-              --typography-display-xl-mobile-font-style: normal;
-              --typography-display-xl-mobile-font-weight: 600;
-              --typography-display-xl-mobile-line-height: 2.9375rem; // 47px
-              --typography-display-xl-mobile-letter-spacing: -1.08px;
-              --typography-display-xl-mobile-font-variation-settings: 'wght' 600, 'opsz' 32;
-
-              /* Display LG */
-              --typography-display-lg-font-family: var(--typography-primary-font-family);
-              --typography-display-lg-font-size: 3rem; // 48px
-              --typography-display-lg-font-style: normal;
-              --typography-display-lg-font-weight: 600;
-              --typography-display-lg-line-height: 3.75rem; // 60px
-              --typography-display-lg-letter-spacing: -1.44px;
-              --typography-display-lg-font-variation-settings: 'wght' 600, 'opsz' 32;
-
-              --typography-display-lg-mobile-font-family: var(--typography-primary-font-family);
-              --typography-display-lg-mobile-font-size: 1.875rem; // 30px
-              --typography-display-lg-mobile-font-style: normal;
-              --typography-display-lg-mobile-font-weight: 600;
-              --typography-display-lg-mobile-line-height: 1.9375rem; // 31px
-              --typography-display-lg-mobile-letter-spacing: -0.9px;
-              --typography-display-lg-mobile-font-variation-settings: 'wght' 600, 'opsz' 32;
-
-              /* Display MD */
-              --typography-display-md-font-family: var(--typography-primary-font-family);
-              --typography-display-md-font-size: 2.25rem; // 36px
-              --typography-display-md-font-style: normal;
-              --typography-display-md-font-weight: 600;
-              --typography-display-md-line-height: 2.75rem; // 44px
-              --typography-display-md-letter-spacing: -0.36px;
-              --typography-display-md-font-variation-settings: 'wght' 600, 'opsz' 32;
-
-              --typography-display-md-mobile-font-family: var(--typography-primary-font-family);
-              --typography-display-md-mobile-font-size: 1.75rem; // 28px
-              --typography-display-md-mobile-font-style: normal;
-              --typography-display-md-mobile-font-weight: 600;
-              --typography-display-md-mobile-line-height: 2.625rem; // 42px
-              --typography-display-md-mobile-letter-spacing: -0.28px;
-              --typography-display-md-mobile-font-variation-settings: 'wght' 600, 'opsz' 32;
-
-              /* Display SM */
-              --typography-display-sm-font-family: var(--typography-primary-font-family);
-              --typography-display-sm-font-size: 1.875rem; // 30px
-              --typography-display-sm-font-style: normal;
-              --typography-display-sm-font-weight: 600;
-              --typography-display-sm-line-height: 2.375rem; // 38px
-              --typography-display-sm-letter-spacing: -0.3px;
-              --typography-display-sm-font-variation-settings: 'wght' 600, 'opsz' 30;
-
-              --typography-display-sm-mobile-font-family: var(--typography-primary-font-family);
-              --typography-display-sm-mobile-font-size: 1.5rem; // 24px
-              --typography-display-sm-mobile-font-style: normal;
-              --typography-display-sm-mobile-font-weight: 600;
-              --typography-display-sm-mobile-line-height: 1.5625rem; // 25px
-              --typography-display-sm-mobile-letter-spacing: -0.24px;
-              --typography-display-sm-mobile-font-variation-settings: 'wght' 600, 'opsz' 24;
-
-              /* Display XS */
-              --typography-display-xs-font-family: var(--typography-primary-font-family);
-              --typography-display-xs-font-size: 1.5rem; // 24px
-              --typography-display-xs-font-style: normal;
-              --typography-display-xs-font-weight: 600;
-              --typography-display-xs-line-height: 2rem; // 32px
-              --typography-display-xs-letter-spacing: -0.48px;
-              --typography-display-xs-font-variation-settings: 'wght' 600, 'opsz' 24;
-
-              --typography-display-xs-mobile-font-family: var(--typography-primary-font-family);
-              --typography-display-xs-mobile-font-size: 1.25rem; // 20px
-              --typography-display-xs-mobile-font-style: normal;
-              --typography-display-xs-mobile-font-weight: 600;
-              --typography-display-xs-mobile-line-height: 1.25rem; // 20px
-              --typography-display-xs-mobile-letter-spacing: -0.4px;
-              --typography-display-xs-mobile-font-variation-settings: 'wght' 600, 'opsz' 20;
-
-              /* Body XL */
-              --typography-body-xl-font-family: var(--typography-primary-font-family);
-              --typography-body-xl-font-size: 1.25rem; // 20px
-              --typography-body-xl-font-style: normal;
-              --typography-body-xl-font-weight: 400;
-              --typography-body-xl-line-height: 1.875rem; // 30px
-              --typography-body-xl-letter-spacing: -0.4px;
-              --typography-body-xl-font-variation-settings: 'wght' 400, 'opsz' 20;
-
-              --typography-body-xl-mobile-font-family: var(--typography-primary-font-family);
-              --typography-body-xl-mobile-font-size: 1.125rem; // 18px
-              --typography-body-xl-mobile-font-style: normal;
-              --typography-body-xl-mobile-font-weight: 400;
-              --typography-body-xl-mobile-line-height: 1.875rem; // 30px
-              --typography-body-xl-mobile-letter-spacing: -0.36px;
-              --typography-body-xl-mobile-font-variation-settings: 'wght' 400, 'opsz' 18;
-
-              /* Body LG */
-              --typography-body-lg-font-family: var(--typography-primary-font-family);
-              --typography-body-lg-font-size: 1.125rem; // 18px
-              --typography-body-lg-font-style: normal;
-              --typography-body-lg-font-weight: 400;
-              --typography-body-lg-line-height: 1.75rem; // 28px
-              --typography-body-lg-letter-spacing: -0.36px;
-              --typography-body-lg-font-variation-settings: 'wght' 400, 'opsz' 18;
-
-              --typography-body-lg-mobile-font-family: var(--typography-primary-font-family);
-              --typography-body-lg-mobile-font-size: 1rem; // 16px
-              --typography-body-lg-mobile-font-style: normal;
-              --typography-body-lg-mobile-font-weight: 400;
-              --typography-body-lg-mobile-line-height: 1.75rem; // 28px
-              --typography-body-lg-mobile-letter-spacing: -0.32px;
-              --typography-body-lg-mobile-font-variation-settings: 'wght' 400, 'opsz' 16;
-
-              /* Body MD */
-              --typography-body-md-font-family: var(--typography-primary-font-family);
-              --typography-body-md-font-size: 1rem; // 16px
-              --typography-body-md-font-style: normal;
-              --typography-body-md-font-weight: 400;
-              --typography-body-md-line-height: 1.5rem; // 24px
-              --typography-body-md-letter-spacing: -0.16px;
-              --typography-body-md-font-variation-settings: 'wght' 400, 'opsz' 16;
-
-              --typography-body-md-mobile-font-family: var(--typography-primary-font-family);
-              --typography-body-md-mobile-font-size: 0.875rem; // 14px
-              --typography-body-md-mobile-font-style: normal;
-              --typography-body-md-mobile-font-weight: 400;
-              --typography-body-md-mobile-line-height: 1.5rem; // 24px
-              --typography-body-md-mobile-letter-spacing: -0.14px;
-              --typography-body-md-mobile-font-variation-settings: 'wght' 400, 'opsz' 14;
-
-              /* Body SM */
-              --typography-body-sm-font-family: var(--typography-primary-font-family);
-              --typography-body-sm-font-size: 0.875rem; // 14px
-              --typography-body-sm-font-style: normal;
-              --typography-body-sm-font-weight: 400;
-              --typography-body-sm-line-height: 1.25rem; // 20px
-              --typography-body-sm-letter-spacing: -0.14px;
-              --typography-body-sm-font-variation-settings: 'wght' 400, 'opsz' 14;
-
-              --typography-body-sm-mobile-font-family: var(--typography-primary-font-family);
-              --typography-body-sm-mobile-font-size: 0.75rem; // 12px
-              --typography-body-sm-mobile-font-style: normal;
-              --typography-body-sm-mobile-font-weight: 400;
-              --typography-body-sm-mobile-line-height: 1.25rem; // 20px
-              --typography-body-sm-mobile-letter-spacing: -0.12px;
-              --typography-body-sm-mobile-font-variation-settings: 'wght' 400, 'opsz' 14;
-
-              /* Body XS */
-              --typography-body-xs-font-family: var(--typography-primary-font-family);
-              --typography-body-xs-font-size: 0.75rem; // 12px
-              --typography-body-xs-font-style: normal;
-              --typography-body-xs-font-weight: 400;
-              --typography-body-xs-line-height: 1.125rem; // 18px
-              --typography-body-xs-letter-spacing: -0.12px;
-              --typography-body-xs-font-variation-settings: 'wght' 400, 'opsz' 14;
-
-              --typography-body-xs-mobile-font-family: var(--typography-primary-font-family);
-              --typography-body-xs-mobile-font-size: 0.625rem; // 10px
-              --typography-body-xs-mobile-font-style: normal;
-              --typography-body-xs-mobile-font-weight: 400;
-              --typography-body-xs-mobile-line-height: 1.125rem; // 18px
-              --typography-body-xs-mobile-letter-spacing: -0.1px;
-              --typography-body-xs-mobile-font-variation-settings: 'wght' 400, 'opsz' 14;
-
-              /* Font Weight */
-              --typography-regular-font-weight: 400;
-              --typography-regular-font-variation-settings: 'wght' 400, 'opsz' 16;
-              --typography-regular-mobile-font-weight: 400;
-              --typography-regular-mobile-font-variation-settings: 'wght' 400, 'opsz' 14;
-
-              --typography-medium-font-weight: 500;
-              --typography-medium-font-variation-settings: 'wght' 500, 'opsz' 16;
-              --typography-medium-mobile-font-weight: 500;
-              --typography-medium-mobile-font-variation-settings: 'wght' 500, 'opsz' 14;
-
-              --typography-semibold-font-weight: 600;
-              --typography-semibold-font-variation-settings: 'wght' 600, 'opsz' 18;
-              --typography-semibold-mobile-font-weight: 600;
-              --typography-semibold-mobile-font-variation-settings: 'wght' 600, 'opsz' 16;
-
-              --typography-bold-font-weight: 700;
-              --typography-bold-font-variation-settings: 'wght' 700, 'opsz' 20;
-              --typography-bold-mobile-font-weight: 700;
-              --typography-bold-mobile-font-variation-settings: 'wght' 700, 'opsz' 18;
-
-              --typography-body-font-weight: 400;
-              --typography-body-font-variation-settings: 'wght' 400, 'opsz' 18;
-              --typography-body-mobile-font-weight: 400;
-              --typography-body-mobile-font-variation-settings: 'wght' 400, 'opsz' 16;
-
-              --typography-display-font-weight: 600;
-              --typography-display-font-variation-settings: 'wght' 600, 'opsz' 32;
-              --typography-display-mobile-font-weight: 600;
-              --typography-display-mobile-font-variation-settings: 'wght' 600, 'opsz' 32;
-            }
 
             .header-container {
               padding: 1rem 2rem;
@@ -336,7 +115,7 @@ export const Layout = ({
                 font-family: Inter, sans-serif;
                 hr {
                   margin: 20px 0;
-                  border-color: var(--color-divider-border);
+                  border-color: #e6e6e6;
                 }
 
                 &.space-y {
@@ -379,47 +158,43 @@ export const Layout = ({
                 }
 
                 h1, h1 a {
-                  font-family: var(--typography-display-lg-mobile-font-family);
-                  font-size: var(--typography-display-lg-mobile-font-size);
-                  font-style: var(--typography-display-lg-mobile-font-style);
-                  font-weight: var(--typography-display-lg-mobile-font-weight);
-                  line-height: var(--typography-display-lg-mobile-line-height);
-                  letter-spacing: var(--typography-display-lg-mobile-letter-spacing);
-                  font-variation-settings: var(--typography-display-lg-mobile-font-variation-settings);
+                  font-family: Inter, system-ui, sans-serif;
+                  font-size: 1.875rem;
+                  font-weight: 600;
+                  line-height: 1.9375rem;
+                  letter-spacing: -0.9px;
+                  font-variation-settings: 'wght' 600, 'opsz' 32;
                 }
 
                 h2, h2 a {
-                  font-family: var(--typography-display-md-mobile-font-family);
-                  font-size: var(--typography-display-md-mobile-font-size);
-                  font-style: var(--typography-display-md-mobile-font-style);
-                  font-weight: var(--typography-display-md-mobile-font-weight);
-                  line-height: var(--typography-display-md-mobile-line-height);
-                  letter-spacing: var(--typography-display-md-mobile-letter-spacing);
-                  font-variation-settings: var(--typography-display-md-mobile-font-variation-settings);
+                  font-family: Inter, system-ui, sans-serif;
+                  font-size: 1.75rem;
+                  font-weight: 600;
+                  line-height: 2.625rem;
+                  letter-spacing: -0.28px;
+                  font-variation-settings: 'wght' 600, 'opsz' 32;
                 }
 
                 h3, h3 a {
                   margin-top: 32px;
 
-                  font-family: var(--typography-display-sm-mobile-font-family);
-                  font-size: var(--typography-display-sm-mobile-font-size);
-                  font-style: var(--typography-display-sm-mobile-font-style);
-                  font-weight: var(--typography-display-sm-mobile-font-weight);
-                  line-height: var(--typography-display-sm-mobile-line-height);
-                  letter-spacing: var(--typography-display-sm-mobile-letter-spacing);
-                  font-variation-settings: var(--typography-display-sm-mobile-font-variation-settings);
+                  font-family: Inter, system-ui, sans-serif;
+                  font-size: 1.5rem;
+                  font-weight: 600;
+                  line-height: 1.5625rem;
+                  letter-spacing: -0.24px;
+                  font-variation-settings: 'wght' 600, 'opsz' 24;
                 }
 
                 h4, h4 a,
                 h5, h5 a,
                 h6, h6 a {
-                  font-family: var(--typography-display-xs-mobile-font-family);
-                  font-size: var(--typography-display-xs-mobile-font-size);
-                  font-style: var(--typography-display-xs-mobile-font-style);
-                  font-weight: var(--typography-display-xs-mobile-font-weight);
-                  line-height: var(--typography-display-xs-mobile-line-height);
-                  letter-spacing: var(--typography-display-xs-mobile-letter-spacing);
-                  font-variation-settings: var(--typography-display-xs-mobile-font-variation-settings);
+                  font-family: Inter, system-ui, sans-serif;
+                  font-size: 1.25rem;
+                  font-weight: 600;
+                  line-height: 1.25rem;
+                  letter-spacing: -0.4px;
+                  font-variation-settings: 'wght' 600, 'opsz' 20;
                 }
 
                 p,
@@ -427,13 +202,12 @@ export const Layout = ({
                 ul,
                 li,
                 a {
-                  font-family: var(--typography-body-md-mobile-font-family);
-                  font-size: var(--typography-body-md-mobile-font-size);
-                  font-style: var(--typography-body-md-mobile-font-style);
-                  line-height: var(--typography-body-md-mobile-line-height);
-                  letter-spacing: var(--typography-body-md-mobile-letter-spacing);
-                  font-weight: var(--typography-body-md-mobile-font-weight);
-                  font-variation-settings: var(--typography-body-md-mobile-font-variation-settings);
+                  font-family: Inter, system-ui, sans-serif;
+                  font-size: 0.875rem;
+                  font-weight: 400;
+                  line-height: 1.5rem;
+                  letter-spacing: -0.14px;
+                  font-variation-settings: 'wght' 400, 'opsz' 14;
                 }
 
                 ol {
@@ -450,63 +224,59 @@ export const Layout = ({
                 }
 
                 strong {
-                  font-weight: var(--typography-semibold-mobile-font-weight);
-                  font-variation-settings: var(--typography-semibold-mobile-font-variation-settings);
+                  font-weight: 600;
+                  font-variation-settings: 'wght' 600, 'opsz' 16;
                 }
 
                 blockquote {
-                  border-left: 2px solid var(--color-base-brand);
+                  border-left: 2px solid #ff3f33;
                   padding-left: 20px;
-                  font-family: var(--typography-body-xl-mobile-font-family);
-                  font-size: var(--typography-body-xl-mobile-font-size);
+                  font-family: Inter, system-ui, sans-serif;
+                  font-size: 1.125rem;
                   font-style: italic;
-                  line-height: var(--typography-body-xl-mobile-line-height);
-                  letter-spacing: var(--typography-body-xl-mobile-letter-spacing);
-                  font-weight: var(--typography-semibold-mobile-font-weight);
-                  font-variation-settings: var(--typography-semibold-mobile-font-variation-settings);
+                  font-weight: 400;
+                  line-height: 1.875rem;
+                  letter-spacing: -0.36px;
+                  font-variation-settings: 'wght' 400, 'opsz' 18;
                 }
 
                 @media screen and (min-width: 1024px) {
                   h1, h1 a {
-                    font-family: var(--typography-display-lg-font-family);
-                    font-size: var(--typography-display-lg-font-size);
-                    font-style: var(--typography-display-lg-font-style);
-                    font-weight: var(--typography-display-lg-font-weight);
-                    line-height: var(--typography-display-lg-line-height);
-                    letter-spacing: var(--typography-display-lg-letter-spacing);
-                    font-variation-settings: var(--typography-display-lg-font-variation-settings);
+                    font-family: Inter, system-ui, sans-serif;
+                    font-size: 3rem;
+                    font-weight: 600;
+                    line-height: 3.75rem;
+                    letter-spacing: -1.44px;
+                    font-variation-settings: 'wght' 600, 'opsz' 32;
                   }
 
                   h2, h2 a {
-                    font-family: var(--typography-display-md-font-family);
-                    font-size: var(--typography-display-md-font-size);
-                    font-style: var(--typography-display-md-font-style);
-                    font-weight: var(--typography-display-md-font-weight);
-                    line-height: var(--typography-display-md-line-height);
-                    letter-spacing: var(--typography-display-md-letter-spacing);
-                    font-variation-settings: var(--typography-display-md-font-variation-settings);
+                    font-family: Inter, system-ui, sans-serif;
+                    font-size: 2.25rem;
+                    font-weight: 600;
+                    line-height: 2.75rem;
+                    letter-spacing: -0.36px;
+                    font-variation-settings: 'wght' 600, 'opsz' 32;
                   }
 
                   h3, h3 a {
-                    font-family: var(--typography-display-sm-font-family);
-                    font-size: var(--typography-display-sm-font-size);
-                    font-style: var(--typography-display-sm-font-style);
-                    font-weight: var(--typography-display-sm-font-weight);
-                    line-height: var(--typography-display-sm-line-height);
-                    letter-spacing: var(--typography-display-sm-letter-spacing);
-                    font-variation-settings: var(--typography-display-sm-font-variation-settings);
+                    font-family: Inter, system-ui, sans-serif;
+                    font-size: 1.875rem;
+                    font-weight: 600;
+                    line-height: 2.375rem;
+                    letter-spacing: -0.3px;
+                    font-variation-settings: 'wght' 600, 'opsz' 30;
                   }
 
                   h4, h4 a,
                   h5, h5 a,
                   h6, h6 a {
-                    font-family: var(--typography-display-xs-font-family);
-                    font-size: var(--typography-display-xs-font-size);
-                    font-style: var(--typography-display-xs-font-style);
-                    font-weight: var(--typography-display-xs-font-weight);
-                    line-height: var(--typography-display-xs-line-height);
-                    letter-spacing: var(--typography-display-xs-letter-spacing);
-                    font-variation-settings: var(--typography-display-xs-font-variation-settings);
+                    font-family: Inter, system-ui, sans-serif;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    line-height: 2rem;
+                    letter-spacing: -0.48px;
+                    font-variation-settings: 'wght' 600, 'opsz' 24;
                   }
 
                   p,
@@ -514,28 +284,27 @@ export const Layout = ({
                   ul,
                   li,
                   a {
-                    font-family: var(--typography-body-md-font-family);
-                    font-size: var(--typography-body-md-font-size);
-                    font-style: var(--typography-body-md-font-style);
-                    line-height: var(--typography-body-md-line-height);
-                    letter-spacing: var(--typography-body-md-letter-spacing);
-                    font-weight: var(--typography-body-md-font-weight);
-                    font-variation-settings: var(--typography-body-md-font-variation-settings);
+                    font-family: Inter, system-ui, sans-serif;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    line-height: 1.5rem;
+                    letter-spacing:  -0.16px;
+                    font-variation-settings: 'wght' 400, 'opsz' 16;
                   }
 
                   strong {
-                    font-weight: var(--typography-semibold-font-weight);
-                    font-variation-settings: var(--typography-semibold-font-variation-settings);
+                    font-weight: 600;
+                    font-variation-settings: 'wght' 600, 'opsz' 18;
                   }
 
                   blockquote {
-                    font-family: var(--typography-body-xl-font-family);
-                    font-size: var(--typography-body-xl-font-size);
+                    font-family: Inter, system-ui, sans-serif;
+                    font-size: 1.25rem;
                     font-style: italic;
-                    line-height: var(--typography-body-xl-line-height);
-                    letter-spacing: var(--typography-body-xl-letter-spacing);
-                    font-weight: var(--typography-semibold-font-weight);
-                    font-variation-settings: var(--typography-semibold-font-variation-settings);
+                    line-height: 1.875rem;
+                    letter-spacing: -0.4px;
+                    font-weight: 400;
+                    font-variation-settings: 'wght' 400, 'opsz' 20;
                   }
                 }
             }
