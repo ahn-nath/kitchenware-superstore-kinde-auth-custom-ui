@@ -492,7 +492,7 @@ export const Layout = ({
                   // Set a backup timeout to hide the loader if navigation doesn't complete
                   navigationTimeout = setTimeout(() => {
                     loadingOverlay.classList.add('auth-loading-hidden');
-                  }, 2000); // 1 second timeout as fallback
+                  }, 1000); // 1 second timeout as fallback
                 }
               });
               
