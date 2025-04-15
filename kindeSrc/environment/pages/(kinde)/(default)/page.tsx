@@ -6,9 +6,9 @@ import {
   type KindePageEvent,
 } from '@kinde/infrastructure';
 import React from 'react';
-// @ts-expect-error: renderToString is not available in the server environment
 import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
+import Wysiwyg from '@/app/components/Wysiwyg';
 
 const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
   const res = await fetch(
@@ -42,6 +42,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
               }}
             />
           )}
+          <Wysiwyg content={signInFormTextTop} />
           {signupFormTextTop && isUserOnLoginOrRegisterPage === 'register' && (
             <div
               className='signupFormTextTopText'
