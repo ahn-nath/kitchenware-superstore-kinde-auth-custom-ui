@@ -476,10 +476,15 @@ export const Layout = ({
                   e.target.classList.contains('kinde-text-link') || 
                   (e.target.parentElement && e.target.parentElement.classList.contains('kinde-text-link'))
                 );
+                const isPrimaryButton = e.target.classList && (
+                  e.target.classList.contains('kinde-button-variant-primary') ||
+                  (e.target.closest('.kinde-button-variant-primary'))
+                );
                 
                 if (isKindeTextLink || 
                     (closestLink && closestLink.href) || 
-                    (closestButton && closestButton.type === 'submit')) {
+                    (closestButton && closestButton.type === 'submit') ||
+                    isPrimaryButton) {
                   
                   // Show loader
                   loadingOverlay.classList.remove('auth-loading-hidden');
@@ -489,10 +494,18 @@ export const Layout = ({
                     clearTimeout(navigationTimeout);
                   }
                   
+                  // Set timeout based on what was clicked
+                  // Use shorter timeout for text links, longer for buttons
+                  let timeoutDuration = 1000; // default 1 second for text links
+                  
+                  if (isPrimaryButton || (closestButton && closestButton.type === 'submit')) {
+                    timeoutDuration = 3000; // 3 seconds for primary buttons and submit buttons
+                  }
+                  
                   // Set a backup timeout to hide the loader if navigation doesn't complete
                   navigationTimeout = setTimeout(() => {
                     loadingOverlay.classList.add('auth-loading-hidden');
-                  }, 1000); // 1 second timeout as fallback
+                  }, timeoutDuration);
                 }
               });
               
