@@ -26,6 +26,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
     signupFormTextBottom,
   } = res?.data?.results?.[0]?.data || {};
   const isUserOnLoginOrRegisterPage = request?.route?.flow;
+  console.log('res', signInFormTextTop)
   return (
     <Layout
       context={context}
@@ -38,7 +39,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
             <div
               className='signInFormTextTopText'
               dangerouslySetInnerHTML={{
-                __html: `<pre>${signInFormTextTop}</pre>`,
+                __html: `${signInFormTextTop}`,
               }}
             />
           )}
@@ -48,7 +49,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
             <div
               className='signupFormTextTopText'
               dangerouslySetInnerHTML={{
-                __html: `<pre>${signupFormTextTop}</pre>`,
+                __html: `${signupFormTextTop}`,
               }}
             />
           )}
@@ -63,7 +64,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
             <div
               className='signInFormTextBottomText'
               dangerouslySetInnerHTML={{
-                __html: `<pre>${signInFormTextBottom}</pre>`,
+                __html: `${signInFormTextBottom}`,
               }}
             />
           )}
@@ -72,7 +73,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
               <div
                 className='signupFormTextBottom'
                 dangerouslySetInnerHTML={{
-                  __html: `<pre>${signupFormTextBottom}</pre>`,
+                  __html: `${signupFormTextBottom}`,
                 }}
               />
             )}
