@@ -37,9 +37,7 @@ export const Layout = ({
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
         <style nonce={getKindeNonce()}>
-          {`
-
-
+            {`
             .header-container {
               padding: 1rem 2rem;
             }
@@ -51,7 +49,7 @@ export const Layout = ({
               align-items:center;
               padding: 0.5rem 0;
               @media screen and (max-width: 1275px) {
-                padding: 0.25rem 0;
+              padding: 0.25rem 0;
               }
             }
 
@@ -87,8 +85,8 @@ export const Layout = ({
               gap: 3rem;
               align-items: center;
               @media screen and (max-width: 1275px) {
-                grid-template-columns: repeat(1, minmax(0, 1fr));
-                padding: 20px;
+              grid-template-columns: repeat(1, minmax(0, 1fr));
+              padding: 20px;
               }
             }
 
@@ -111,203 +109,202 @@ export const Layout = ({
             }
 
             .signInFormTextTopText, .signupFormTextTopText, .signInFormTextBottomText, .signupFormTextBottom {
-                color: #1A1A1A;
-                font-family: Inter, sans-serif;
-                hr {
-                  margin: 20px 0;
-                  border-color: #e6e6e6;
-                }
+              color: #1A1A1A;
+              font-family: Inter, sans-serif;
+              hr {
+                margin: 20px 0;
+                border-color: #e6e6e6;
+              }
 
-                &.space-y {
-                  ul > li {
-                    margin-top: 16px;
-                  }
+              &.space-y {
+                ul > li {
+                margin-top: 16px;
                 }
+              }
 
-                a {
-                  text-decoration: underline;
-                }
+              a {
+                text-decoration: underline;
+              }
 
-                h4,
-                h5,
-                h6,
-                p,
-                div,
-                ul,
-                blockquote {
-                  margin-top: 16px;
-                }
+              h4,
+              h5,
+              h6,
+              p,
+              div,
+              ul,
+              blockquote {
+                margin-top: 16px;
+              }
 
-                h1,
-                h2 {
-                  margin-top: 56px;
-                }
+              h1,
+              h2 {
+                margin-top: 56px;
+              }
 
-                h1:first-child,
-                h2:first-child,
-                h3:first-child,
-                h4:first-child,
-                h5:first-child,
-                h6:first-child,
-                p:first-child,
-                div:first-child,
-                ul:first-child,
-                blockquote:first-child,
-                a:first-child {
-                  margin-top: 0;
-                }
+              h1:first-child,
+              h2:first-child,
+              h3:first-child,
+              h4:first-child,
+              h5:first-child,
+              h6:first-child,
+              p:first-child,
+              div:first-child,
+              ul:first-child,
+              blockquote:first-child,
+              a:first-child {
+                margin-top: 0;
+              }
 
+              h1, h1 a {
+                font-family: Inter, system-ui, sans-serif;
+                font-size: 1.875rem;
+                font-weight: 600;
+                line-height: 1.9375rem;
+                letter-spacing: -0.9px;
+                font-variation-settings: \'wght\' 600, \'opsz\' 32;
+              }
+
+              h2, h2 a {
+                font-family: Inter, system-ui, sans-serif;
+                font-size: 1.75rem;
+                font-weight: 600;
+                line-height: 2.625rem;
+                letter-spacing: -0.28px;
+                font-variation-settings: \'wght\' 600, \'opsz\' 32;
+              }
+
+              h3, h3 a {
+                margin-top: 32px;
+                font-family: Inter, system-ui, sans-serif;
+                font-size: 1.5rem;
+                font-weight: 600;
+                line-height: 1.5625rem;
+                letter-spacing: -0.24px;
+                font-variation-settings: \'wght\' 600, \'opsz\' 24;
+              }
+
+              h4, h4 a,
+              h5, h5 a,
+              h6, h6 a {
+                font-family: Inter, system-ui, sans-serif;
+                font-size: 1.25rem;
+                font-weight: 600;
+                line-height: 1.25rem;
+                letter-spacing: -0.4px;
+                font-variation-settings: \'wght\' 600, \'opsz\' 20;
+              }
+
+              p,
+              ol,
+              ul,
+              li,
+              a {
+                font-family: Inter, system-ui, sans-serif;
+                font-size: 0.875rem;
+                font-weight: 400;
+                line-height: 1.5rem;
+                letter-spacing: -0.14px;
+                font-variation-settings: \'wght\' 400, \'opsz\' 14;
+              }
+
+              ol {
+                list-style-type: decimal;
+              }
+
+              ul {
+                list-style-type: disc;
+              }
+
+              ol,
+              ul {
+                margin-left: 20px;
+              }
+
+              strong {
+                font-weight: 600;
+                font-variation-settings: \'wght\' 600, \'opsz\' 16;
+              }
+
+              blockquote {
+                border-left: 2px solid #ff3f33;
+                padding-left: 20px;
+                font-family: Inter, system-ui, sans-serif;
+                font-size: 1.125rem;
+                font-style: italic;
+                font-weight: 400;
+                line-height: 1.875rem;
+                letter-spacing: -0.36px;
+                font-variation-settings: \'wght\' 400, \'opsz\' 18;
+              }
+
+              @media screen and (min-width: 1024px) {
                 h1, h1 a {
-                  font-family: Inter, system-ui, sans-serif;
-                  font-size: 1.875rem;
-                  font-weight: 600;
-                  line-height: 1.9375rem;
-                  letter-spacing: -0.9px;
-                  font-variation-settings: wght 600, opsz 32;
-                }
+                font-family: Inter, system-ui, sans-serif;
+                font-size: 3rem;
+                font-weight: 600;
+                line-height: 3.75rem;
+                letter-spacing: -1.44px;
+                font-variation-settings: \'wght\' 600, \'opsz\' 32;
+              }
 
-                h2, h2 a {
-                  font-family: Inter, system-ui, sans-serif;
-                  font-size: 1.75rem;
-                  font-weight: 600;
-                  line-height: 2.625rem;
-                  letter-spacing: -0.28px;
-                  font-variation-settings: wght 600, opsz 32;
-                }
+              h2, h2 a {
+                font-family: Inter, system-ui, sans-serif;
+                font-size: 2.25rem;
+                font-weight: 600;
+                line-height: 2.75rem;
+                letter-spacing: -0.36px;
+                font-variation-settings: \'wght\' 600, \'opsz\' 32;
+              }
 
-                h3, h3 a {
-                  margin-top: 32px;
+              h3, h3 a {
+                font-family: Inter, system-ui, sans-serif;
+                font-size: 1.875rem;
+                font-weight: 600;
+                line-height: 2.375rem;
+                letter-spacing: -0.3px;
+                font-variation-settings: \'wght\' 600, \'opsz\' 30;
+              }
 
-                  font-family: Inter, system-ui, sans-serif;
-                  font-size: 1.5rem;
-                  font-weight: 600;
-                  line-height: 1.5625rem;
-                  letter-spacing: -0.24px;
-                  font-variation-settings: wght 600, opsz 24;
-                }
+              h4, h4 a,
+              h5, h5 a,
+              h6, h6 a {
+                font-family: Inter, system-ui, sans-serif;
+                font-size: 1.5rem;
+                font-weight: 600;
+                line-height: 2rem;
+                letter-spacing: -0.48px;
+                font-variation-settings: \'wght\' 600, \'opsz\' 24;
+              }
 
-                h4, h4 a,
-                h5, h5 a,
-                h6, h6 a {
-                  font-family: Inter, system-ui, sans-serif;
-                  font-size: 1.25rem;
-                  font-weight: 600;
-                  line-height: 1.25rem;
-                  letter-spacing: -0.4px;
-                  font-variation-settings: wght 600, opsz 20;
-                }
+              p,
+              ol,
+              ul,
+              li,
+              a {
+                font-family: Inter, system-ui, sans-serif;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.5rem;
+                letter-spacing:  -0.16px;
+                font-variation-settings: \'wght\' 400, \'opsz\' 16;
+              }
 
-                p,
-                ol,
-                ul,
-                li,
-                a {
-                  font-family: Inter, system-ui, sans-serif;
-                  font-size: 0.875rem;
-                  font-weight: 400;
-                  line-height: 1.5rem;
-                  letter-spacing: -0.14px;
-                  font-variation-settings: wght 400, opsz 14;
-                }
+              strong {
+                font-weight: 600;
+                font-variation-settings: \'wght\' 600, \'opsz\' 18;
+              }
 
-                ol {
-                  list-style-type: decimal;
-                }
-
-                ul {
-                  list-style-type: disc;
-                }
-
-                ol,
-                ul {
-                  margin-left: 20px;
-                }
-
-                strong {
-                  font-weight: 600;
-                  font-variation-settings: wght 600, opsz 16;
-                }
-
-                blockquote {
-                  border-left: 2px solid #ff3f33;
-                  padding-left: 20px;
-                  font-family: Inter, system-ui, sans-serif;
-                  font-size: 1.125rem;
-                  font-style: italic;
-                  font-weight: 400;
-                  line-height: 1.875rem;
-                  letter-spacing: -0.36px;
-                  font-variation-settings: wght 400, opsz 18;
-                }
-
-                @media screen and (min-width: 1024px) {
-                  h1, h1 a {
-                    font-family: Inter, system-ui, sans-serif;
-                    font-size: 3rem;
-                    font-weight: 600;
-                    line-height: 3.75rem;
-                    letter-spacing: -1.44px;
-                    font-variation-settings: wght 600, opsz 32;
-                  }
-
-                  h2, h2 a {
-                    font-family: Inter, system-ui, sans-serif;
-                    font-size: 2.25rem;
-                    font-weight: 600;
-                    line-height: 2.75rem;
-                    letter-spacing: -0.36px;
-                    font-variation-settings: wght 600, opsz 32;
-                  }
-
-                  h3, h3 a {
-                    font-family: Inter, system-ui, sans-serif;
-                    font-size: 1.875rem;
-                    font-weight: 600;
-                    line-height: 2.375rem;
-                    letter-spacing: -0.3px;
-                    font-variation-settings: wght 600, opsz 30;
-                  }
-
-                  h4, h4 a,
-                  h5, h5 a,
-                  h6, h6 a {
-                    font-family: Inter, system-ui, sans-serif;
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    line-height: 2rem;
-                    letter-spacing: -0.48px;
-                    font-variation-settings: wght 600, opsz 24;
-                  }
-
-                  p,
-                  ol,
-                  ul,
-                  li,
-                  a {
-                    font-family: Inter, system-ui, sans-serif;
-                    font-size: 1rem;
-                    font-weight: 400;
-                    line-height: 1.5rem;
-                    letter-spacing:  -0.16px;
-                    font-variation-settings: wght 400, opsz 16;
-                  }
-
-                  strong {
-                    font-weight: 600;
-                    font-variation-settings: wght 600, opsz 18;
-                  }
-
-                  blockquote {
-                    font-family: Inter, system-ui, sans-serif;
-                    font-size: 1.25rem;
-                    font-style: italic;
-                    line-height: 1.875rem;
-                    letter-spacing: -0.4px;
-                    font-weight: 400;
-                    font-variation-settings: wght 400, opsz 20;
+              blockquote {
+                font-family: Inter, system-ui, sans-serif;
+                font-size: 1.25rem;
+                font-style: italic;
+                line-height: 1.875rem;
+                letter-spacing: -0.4px;
+                font-weight: 400;
+                font-variation-settings: \'wght\' 400, \'opsz\' 20;
                   }
                 }
-            }
+                }
 
             .login-form {
               display: flex;
@@ -384,11 +381,10 @@ export const Layout = ({
             }
 
             .side-panel {
-                display: flex;
-                height: 100%;
-                @media screen and (max-width: 1275px) {
-                    display: none;
-                }
+              display: flex;
+              height: 100%;
+              @media screen and (max-width: 1275px) {
+                display: none;
               }
               .side-panel-image {
                 width: 100%;
@@ -398,7 +394,7 @@ export const Layout = ({
                 border-radius: 4px;
               }
             }
-          `}
+            `}
         </style>
       </head>
       <body style={{ display: 'flex', flexDirection: 'column' }}>
