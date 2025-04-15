@@ -89,6 +89,13 @@ export const Layout = ({
                 grid-template-columns: repeat(1, minmax(0, 1fr));
                 padding: 20px;
               }
+                display: flex;
+  position: relative;
+  background-color: #eee;
+  flex-wrap: wrap;
+  @media screen and (min-width: 1024px) {
+    max-width: 56%;
+}
             }
 
             .back-to-site {
@@ -100,13 +107,11 @@ export const Layout = ({
             }
 
             .login-form-wrapper {
-              display: flex;
-              flex-direction: column;
-              width: 100%;
-              gap: 20px;
-              justify-content: center;
-              align-items: center;
-              flex: 1 0 0;
+             box-sizing: border-box;
+  flex-basis: 0;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 100%;
             }
 
             .signInFormTextTopText, .signupFormTextTopText, .signInFormTextBottomText, .signupFormTextBottom {
@@ -394,16 +399,16 @@ export const Layout = ({
             }
 
             .side-panel {
-              flex: 1 0 0;
-                @media screen and (max-width: 1275px) {
-                    display: none;
-                }
+                box-sizing: border-box;
+  flex-basis: 0;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 100%;
               }
               .side-panel-image {
-                width: 100%;
-                height: 100%;
-                max-height: 800px;
-                object-fit: cover;
+           height: 100%;
+  width: 100%;
+  object-fit:cover;
                 border-radius: 4px;
               }
             }
