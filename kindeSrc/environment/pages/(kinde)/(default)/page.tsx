@@ -8,7 +8,7 @@ import {
 import React from 'react';
 import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
-import Wysiwyg from '@/app/components/Wysiwyg';
+import { PortableText } from '@portabletext/react';
 
 const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
   const res = await fetch(
@@ -42,7 +42,8 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
               }}
             />
           )}
-          <Wysiwyg jsonContent={signInFormTextTop} />
+          {/* <Wysiwyg jsonContent={signInFormTextTop} /> */}
+          <PortableText value={signInFormTextTop} />
           {signupFormTextTop && isUserOnLoginOrRegisterPage === 'register' && (
             <div
               className='signupFormTextTopText'
