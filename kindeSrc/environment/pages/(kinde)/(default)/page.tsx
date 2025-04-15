@@ -43,7 +43,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
             />
           )}
           {/* <Wysiwyg jsonContent={signInFormTextTop} /> */}
-          <PortableText value={signInFormTextTop} />
+          {/* <PortableText value={signInFormTextTop} /> */}
           {signupFormTextTop && isUserOnLoginOrRegisterPage === 'register' && (
             <div
               className='signupFormTextTopText'
