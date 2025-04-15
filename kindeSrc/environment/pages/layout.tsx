@@ -78,17 +78,17 @@ export const Layout = ({
             }
 
             .container {
-              display: grid;
-              grid-template-columns: repeat(2, minmax(0, 1fr));
-              width: 100%;
-              justify-content: center;
-              gap: 3rem;
-              align-items: center;
-              height: fit-content;
-              @media screen and (max-width: 1275px) {
-                grid-template-columns: repeat(1, minmax(0, 1fr));
-                padding: 20px;
-              }
+             display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  justify-content: center;
+  gap: 3rem;
+  align-items: stretch; /* Change from center to stretch */
+  height: auto; /* Change from fit-content to auto */
+  @media screen and (max-width: 1275px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    padding: 20px;
+  }
             }
 
             .back-to-site {
@@ -394,17 +394,17 @@ export const Layout = ({
             }
 
             .side-panel {
-              flex: 1 0 0;
-                @media screen and (max-width: 1275px) {
-                    display: none;
-                }
+               display: flex; /* Add display flex */
+  height: 100%; /* Full height */
+  @media screen and (max-width: 1275px) {
+    display: none;
+  }
               }
               .side-panel-image {
-                width: 100%;
-                height: 100%;
-                max-height: 800px;
-                object-fit: cover;
-                border-radius: 4px;
+              width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
               }
             }
           `}
