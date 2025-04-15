@@ -1,3 +1,5 @@
+'use server';
+
 import React, { useMemo, useState } from 'react'
 import classNames from 'classnames'
 import Link from 'next/link'
