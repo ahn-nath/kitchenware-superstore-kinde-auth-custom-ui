@@ -468,6 +468,58 @@ export const Layout = ({
               // Track navigation completion
               let navigationTimeout;
               
+              // Handle browser back/forward navigation
+              window.addEventListener('popstate', function() {
+                // Show loader during browser navigation events
+                loadingOverlay.classList.remove('auth-loading-hidden');
+                
+                // Clear any existing timeout
+                if (navigationTimeout) {
+                  clearTimeout(navigationTimeout);
+                }
+                
+                // Set a timeout to hide the loader
+                navigationTimeout = setTimeout(() => {
+                  loadingOverlay.classList.add('auth-loading-hidden');
+                }, 1500); // 1.5 seconds for browser navigation
+              });
+              
+              // Intercept history changes (pushState/replaceState)
+              const originalPushState = window.history.pushState;
+              const originalReplaceState = window.history.replaceState;
+              
+              window.history.pushState = function() {
+                originalPushState.apply(this, arguments);
+                // Show loader when history state changes
+                loadingOverlay.classList.remove('auth-loading-hidden');
+                
+                // Clear any existing timeout
+                if (navigationTimeout) {
+                  clearTimeout(navigationTimeout);
+                }
+                
+                // Set a timeout to hide the loader
+                navigationTimeout = setTimeout(() => {
+                  loadingOverlay.classList.add('auth-loading-hidden');
+                }, 1500);
+              };
+              
+              window.history.replaceState = function() {
+                originalReplaceState.apply(this, arguments);
+                // Show loader when history state changes
+                loadingOverlay.classList.remove('auth-loading-hidden');
+                
+                // Clear any existing timeout
+                if (navigationTimeout) {
+                  clearTimeout(navigationTimeout);
+                }
+                
+                // Set a timeout to hide the loader
+                navigationTimeout = setTimeout(() => {
+                  loadingOverlay.classList.add('auth-loading-hidden');
+                }, 1500);
+              };
+              
               // Show loader on any link click within authentication pages
               document.addEventListener('click', function(e) {
                 const closestLink = e.target.closest('a');
