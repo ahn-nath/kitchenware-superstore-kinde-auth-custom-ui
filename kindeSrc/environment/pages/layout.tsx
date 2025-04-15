@@ -415,6 +415,23 @@ export const Layout = ({
               opacity: 0;
               pointer-events: none;
             }
+
+            /* Custom Spinner */
+            .custom-spinner {
+              display: inline-block;
+              width: 40px;
+              height: 40px;
+              border: 5px solid #161616;
+              border-radius: 50%;
+              border-top-color: transparent;
+              animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+              to {
+                transform: rotate(360deg);
+              }
+            }
             `}
         </style>
         <script nonce={getKindeNonce()} dangerouslySetInnerHTML={{
@@ -427,7 +444,7 @@ export const Layout = ({
               loadingOverlay.id = 'kinde-auth-loader';
               
               const spinner = document.createElement('div');
-              spinner.className = 'loading-spinner';
+              spinner.className = 'custom-spinner';
               
               const loadingText = document.createElement('p');
               loadingText.innerText = 'Loading...';
@@ -448,14 +465,34 @@ export const Layout = ({
                 }, 300);
               });
               
+              // Track navigation completion
+              let navigationTimeout;
+              
               // Show loader on any link click within authentication pages
               document.addEventListener('click', function(e) {
                 const closestLink = e.target.closest('a');
                 const closestButton = e.target.closest('button');
+                const isKindeTextLink = e.target.classList && (
+                  e.target.classList.contains('kinde-text-link') || 
+                  (e.target.parentElement && e.target.parentElement.classList.contains('kinde-text-link'))
+                );
                 
-                if ((closestLink && closestLink.href) || 
+                if (isKindeTextLink || 
+                    (closestLink && closestLink.href) || 
                     (closestButton && closestButton.type === 'submit')) {
+                  
+                  // Show loader
                   loadingOverlay.classList.remove('auth-loading-hidden');
+                  
+                  // Clear any existing timeout
+                  if (navigationTimeout) {
+                    clearTimeout(navigationTimeout);
+                  }
+                  
+                  // Set a backup timeout to hide the loader if navigation doesn't complete
+                  navigationTimeout = setTimeout(() => {
+                    loadingOverlay.classList.add('auth-loading-hidden');
+                  }, 5000); // 5 second timeout as fallback
                 }
               });
               
@@ -463,6 +500,38 @@ export const Layout = ({
               document.addEventListener('submit', function(e) {
                 loadingOverlay.classList.remove('auth-loading-hidden');
               });
+              
+              // Monitor for DOM changes that indicate page load completion
+              const observer = new MutationObserver(function(mutations) {
+                // Check if mutations indicate auth content has loaded
+                const kindeContentLoaded = mutations.some(mutation => {
+                  return mutation.addedNodes.length > 0 || 
+                         (mutation.target.classList && 
+                          mutation.target.classList.contains('kinde-button-variant-primary'));
+                });
+                
+                if (kindeContentLoaded) {
+                  setTimeout(() => {
+                    loadingOverlay.classList.add('auth-loading-hidden');
+                    if (navigationTimeout) {
+                      clearTimeout(navigationTimeout);
+                    }
+                  }, 300);
+                }
+              });
+              
+              // Start observing once DOM is loaded
+              setTimeout(() => {
+                const kindeRoot = document.querySelector('[data-kinde-root]');
+                if (kindeRoot) {
+                  observer.observe(kindeRoot, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    characterData: false
+                  });
+                }
+              }, 500);
             });
           `
         }} />
