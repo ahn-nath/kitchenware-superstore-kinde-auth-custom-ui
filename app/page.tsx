@@ -17,6 +17,9 @@ export default function Home() {
       {!isAuthenticated && (
         <LoginLink
           postLoginRedirectURL={pathname}
+          authUrlParams={{
+            random_value: '1234567890',
+          }}
           className='m-0 flex h-14 w-full items-center justify-center rounded bg-crRed px-4 py-3 text-center font-bold uppercase text-white bg-red-500 hover:opacity-100 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 disabled:opacity-100'
         >
           Login
