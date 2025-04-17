@@ -25,7 +25,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
     signupFormTextBottom,
   } = res?.data?.results?.[0]?.data || {};
   const isUserOnLoginOrRegisterPage = request?.route?.flow;
-  console.log('res', context,request)
+  // console.log('res', context,request)
   return (
     <Layout
       context={context}
@@ -93,6 +93,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
 
 // Page Component
 export default async function Page(event: KindePageEvent): Promise<string> {
+  console.log('event',{event})
   const page = await DefaultPage(event);
   return renderToString(page);
 }
