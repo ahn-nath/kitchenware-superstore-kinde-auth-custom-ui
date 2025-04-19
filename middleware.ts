@@ -1,44 +1,20 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-
-// This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
-  // Access query parameters from the URL
+  console.log('🔍 Middleware triggered ONCE!');
+  console.log('----------------------------------');
+  console.log('🛣️  URL:', request.url);
+  console.log('----------------------------------');
+  // Extract the query parameters from the request URL
   const url = new URL(request.url);
-  const searchParams = url.searchParams;
-  
-  // Example: Get a specific parameter
-  const name = searchParams.get('name');
-  const id = searchParams.get('id');
-  
-  // Log for debugging
-  console.log('Middleware accessing query params:', {
-    name,
-    id,
-    allParams: Object.fromEntries(searchParams.entries())
-  });
-  
-  // Example: Add a query parameter
-  if (name && !searchParams.has('greeting')) {
-    const newUrl = new URL(request.url);
-    newUrl.searchParams.set('greeting', `Hello ${name}`);
-    return NextResponse.redirect(newUrl);
-  }
-  
-  // Simply forward the request by default
+  const queryParams = url.searchParams.toString();
+  console.log('🔍 Query Parameters:', queryParams);
+  queryParams.split('&').forEach((param) => {
+    const [key, value] = param.split('=');
+    console.log(`🔑 ${decodeURIComponent(key)}: ${decodeURIComponent(value)}`);
+  }); // Continue processing the request
   return NextResponse.next();
-}
-
-// See "Matching Paths" below to learn more
+} // Match ALL routes except Next.js internals
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
-  ],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
 };
