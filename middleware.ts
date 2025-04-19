@@ -3,20 +3,28 @@ import type { NextRequest } from 'next/server';
 
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
-  // Example middleware logic
-  // You can modify the request or response here
-  
-  // Example: redirect logic, header modification, etc.
-  // const origin = request.headers.get('origin')
-  // console.log('Middleware running for path:', request.nextUrl.pathname);
+  // Access query parameters from the URL
   const url = new URL(request.url);
-  const queryParams = url.searchParams.toString();
-  console.log('🔍 Query Parameters:', queryParams);
-  queryParams.split('&').forEach(param => {
-  const [key, value] = param.split('=');
-  console.log(`${decodeURIComponent(key)}: ${decodeURIComponent(value)}`)
+  const searchParams = url.searchParams;
+  
+  // Example: Get a specific parameter
+  const name = searchParams.get('name');
+  const id = searchParams.get('id');
+  
+  // Log for debugging
+  console.log('Middleware accessing query params:', {
+    name,
+    id,
+    allParams: Object.fromEntries(searchParams.entries())
+  });
+  
+  // Example: Add a query parameter
+  if (name && !searchParams.has('greeting')) {
+    const newUrl = new URL(request.url);
+    newUrl.searchParams.set('greeting', `Hello ${name}`);
+    return NextResponse.redirect(newUrl);
   }
-  );
+  
   // Simply forward the request by default
   return NextResponse.next();
 }
