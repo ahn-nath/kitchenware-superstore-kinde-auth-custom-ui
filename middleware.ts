@@ -9,7 +9,14 @@ export function middleware(request: NextRequest) {
   // Example: redirect logic, header modification, etc.
   // const origin = request.headers.get('origin')
   // console.log('Middleware running for path:', request.nextUrl.pathname);
-  console.log({request})
+  const url = new URL(request.url);
+  const queryParams = url.searchParams.toString();
+  console.log('🔍 Query Parameters:', queryParams);
+  queryParams.split('&').forEach(param => {
+  const [key, value] = param.split('=');
+  console.log(`${decodeURIComponent(key)}: ${decodeURIComponent(value)}`)
+  }
+  );
   // Simply forward the request by default
   return NextResponse.next();
 }
