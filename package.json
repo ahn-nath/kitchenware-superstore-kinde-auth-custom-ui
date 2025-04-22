@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@kinde-oss/kinde-auth-nextjs": "^2.5.6",
-    "@kinde/infrastructure": "^0.4.0",
+    "@kinde/infrastructure": "^0.4.1",
     "next": "15.2.3",
     "postcss": "^8.5.3",
     "react": "^19.0.0",

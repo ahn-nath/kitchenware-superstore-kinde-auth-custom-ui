@@ -32,7 +32,9 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
       request={request}
       props={res?.data?.results?.[0]?.data}
     >
+      
       <div className='container'>
+        <h1>Hello this is the Default Kinde page</h1>
         <div className='login-form-wrapper'>
           {signInFormTextTop && isUserOnLoginOrRegisterPage === 'login' && (
             <div
