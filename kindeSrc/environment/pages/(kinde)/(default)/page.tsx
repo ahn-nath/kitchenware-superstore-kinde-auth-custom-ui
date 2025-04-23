@@ -40,6 +40,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
         <h1>Hello this is the Default Kinde page</h1>
         
         <pre>{JSON.stringify(request, null, 2)}</pre>
+        <pre>{JSON.stringify(context, null, 2)}</pre>
 
         
         <p>Redirect URI: {request.authUrlParams?.redirectUri || 'Not available'}</p>
