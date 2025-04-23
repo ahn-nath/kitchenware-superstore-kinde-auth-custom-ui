@@ -10,6 +10,9 @@ import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
 
 const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
+  console.log('context', context);
+  console.log('request', request);
+
   const res = await fetch(
     'https://cdn.builder.io/api/v3/content/login-page-data?apiKey=c065718cfdf849a89015b311c8d3185e&sort.createdDate=-1',
     {
@@ -32,9 +35,16 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
       request={request}
       props={res?.data?.results?.[0]?.data}
     >
-      
+
       <div className='container'>
-        <h1>Hello this is the Default Kinde page</h1>
+        <h1>Hello this is the Default Kinde page {JSON.stringify(request.authUrlParams, null, 2)}</h1>
+        
+        <pre>{JSON.stringify(request.authUrlParams, null, 2)}</pre>
+
+        
+        <p>Redirect URI: {request.authUrlParams?.redirectUri || 'Not available'}</p>
+       
+
         <div className='login-form-wrapper'>
           {signInFormTextTop && isUserOnLoginOrRegisterPage === 'login' && (
             <div
