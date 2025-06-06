@@ -24,10 +24,10 @@ const nextConfig: NextConfig = {
       `http://localhost:3000/`,
     KINDE_POST_LOGOUT_REDIRECT_URL:
       process.env.KINDE_POST_LOGOUT_REDIRECT_URL ??
-      `http://localhost:3000/`,
+      `http://localhost:8000/`,
     KINDE_POST_LOGIN_REDIRECT_URL:
       process.env.KINDE_POST_LOGIN_REDIRECT_URL ??
-      `http://localhost:3000/`,
+      `http://localhost:8000/`,
   },
 };
 
