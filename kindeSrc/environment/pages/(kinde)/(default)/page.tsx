@@ -37,7 +37,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
     >
 
       <div className='container'>
-        <h1>Hello this is the Default Kinde page</h1>
+        <h1>Hello this is the Default Kinde page - test</h1>
         
         <pre>{JSON.stringify(request, null, 2)}</pre>
         <pre>{JSON.stringify(context, null, 2)}</pre>

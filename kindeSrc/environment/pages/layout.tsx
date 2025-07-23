@@ -638,7 +638,7 @@ export const Layout = ({
           }}
         />
       </head>
-      <body style={{ display: 'flex', flexDirection: 'column' }}>
+      <body data-theme="dark" style={{ display: 'flex', flexDirection: 'column' }}>
         {logo && (
           <header>
             <div className='header-container'>
