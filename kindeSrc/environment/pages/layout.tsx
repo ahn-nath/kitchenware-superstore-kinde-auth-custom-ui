@@ -9,6 +9,9 @@ import {
 } from '@kinde/infrastructure';
 import React from 'react';
 
+import { getKindeThemeCode } from "@kinde/infrastructure";
+
+
 interface LayoutProps extends KindePageEvent {
   children: React.ReactNode;
   props: {
@@ -27,7 +30,10 @@ export const Layout = ({
 }: LayoutProps): React.JSX.Element => {
   const { logo, helpText, helpNumber, paymentLogos } = props ?? {};
   return (
-    <html lang={request.locale.lang}>
+    <html 
+      lang={request.locale.lang}
+      data-kinde-theme={getKindeThemeCode()}
+    >
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
