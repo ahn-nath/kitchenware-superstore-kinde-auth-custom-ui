@@ -11,6 +11,7 @@ import Layout from '../../layout';
 
 const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
   let conditionalValue = 1 // process.env.NEXT_PUBLIC_CONDITIONAL_VALUE || 'Default value';
+  let clientId = request.authUrlParams?.clientId || null;
 
 
   console.log('context', context);
@@ -46,6 +47,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
         
         <pre>{JSON.stringify(request, null, 2)}</pre>
         <pre>{JSON.stringify(context, null, 2)}</pre>
+        <h2> Client ID: {request.authUrlParams?.clientId || 'Not available'}</h2>
 
         
         <p>Redirect URI: {request.authUrlParams?.redirectUri || 'Not available'}</p>
@@ -113,6 +115,8 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
         
         <pre>{JSON.stringify(request, null, 2)}</pre>
         <pre>{JSON.stringify(context, null, 2)}</pre>
+        <h2> Client ID: {request.authUrlParams?.clientId || 'Not available'}</h2>
+
 
         
         <p>Redirect URI - Container 2: {request.authUrlParams?.redirectUri || 'Not available'}</p>
