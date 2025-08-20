@@ -10,7 +10,7 @@ import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
 
 const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
-  const conditionalValue = true // process.env.NEXT_PUBLIC_CONDITIONAL_VALUE || 'Default value';
+  let conditionalValue = 1 // process.env.NEXT_PUBLIC_CONDITIONAL_VALUE || 'Default value';
 
 
   console.log('context', context);
@@ -40,7 +40,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
     >
 
       {/* Example of conditional rendering based on environment variable */}
-      {conditionalValue && 
+      {conditionalValue == 1 &&
       <div className='container'>
         <h1>Hello this is the Default Kinde page - Container 1</h1>
         
@@ -107,7 +107,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
       </div>
       }
       {/* Example of conditional rendering based on environment variable */}
-      {!conditionalValue &&
+      {conditionalValue == 2 &&
             <div className='container-2'>
         <h1>Hello this is the Default Kinde page - Container 2</h1>
         
