@@ -41,7 +41,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
     >
 
       {/* Example of conditional rendering based on environment variable */}
-      {clientId == 'ca3c184c80c740bd842777bceee2df74' &&
+      {clientId != 'ca3c184c80c740bd842777bceee2df74' &&
       <div className='container'>
         <h1>Hello this is the Default Kinde page - Container 1</h1>
         
@@ -109,7 +109,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
       </div>
       }
       {/* Example of conditional rendering based on environment variable */}
-      {clientId != 'ca3c184c80c740bd842777bceee2df74'  &&
+      {clientId == 'ca3c184c80c740bd842777bceee2df74'  &&
             <div className='container-2'>
         <h1>Hello this is the Default Kinde page - Container 2</h1>
         
