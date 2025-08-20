@@ -10,7 +10,7 @@ import { renderToString } from 'react-dom/server.browser';
 import Layout from '../../layout';
 
 const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
-  const conditionalValue = true // process.env.NEXT_PUBLIC_CONDITIONAL_VALUE || 'Default value';
+  const conditionalValue = false // process.env.NEXT_PUBLIC_CONDITIONAL_VALUE || 'Default value';
 
 
   console.log('context', context);
