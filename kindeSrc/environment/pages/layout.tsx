@@ -96,6 +96,20 @@ export const Layout = ({
                 }
               }
 
+              .container-2 {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                width: 50%;
+                color: red;
+                justify-content: center;
+                gap: 3rem;
+                align-items: center;
+                @media screen and (max-width: 1275px) {
+                  grid-template-columns: repeat(1, minmax(0, 1fr));
+                  padding: 20px;
+                }
+              }
+
               .back-to-site {
                 display: flex;
                 gap: 4px;

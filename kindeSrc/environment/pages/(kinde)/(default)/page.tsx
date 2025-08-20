@@ -108,7 +108,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
       }
       {/* Example of conditional rendering based on environment variable */}
       {!conditionalValue &&
-            <div className='container'>
+            <div className='container-2'>
         <h1>Hello this is the Default Kinde page - Container 2</h1>
         
         <pre>{JSON.stringify(request, null, 2)}</pre>
