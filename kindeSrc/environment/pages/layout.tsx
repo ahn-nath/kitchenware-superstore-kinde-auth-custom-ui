@@ -30,7 +30,7 @@ export const Layout = ({
 }: LayoutProps): React.JSX.Element => {
   const { logo, helpText, helpNumber, paymentLogos } = props ?? {};
   return (
-    <html 
+    <html
       lang={request.locale.lang}
       data-kinde-theme={getKindeThemeCode()}
     >
@@ -101,13 +101,11 @@ export const Layout = ({
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 width: 50%;
                 color: red;
+                background: darkolivegreen;
+                padding: 50px;
                 justify-content: center;
                 gap: 3rem;
                 align-items: center;
-                @media screen and (max-width: 1275px) {
-                  grid-template-columns: repeat(1, minmax(0, 1fr));
-                  padding: 20px;
-                }
               }
 
               .back-to-site {
