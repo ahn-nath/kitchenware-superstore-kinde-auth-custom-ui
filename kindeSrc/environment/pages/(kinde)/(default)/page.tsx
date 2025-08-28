@@ -12,7 +12,7 @@ import Layout from '../../layout';
 const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
   let clientId = request.authUrlParams?.clientId || null;
 
-  /*
+  
   const res = await fetch(
     'https://cdn.builder.io/api/v3/content/login-page-data?apiKey=c065718cfdf849a89015b311c8d3185e&sort.createdDate=-1',
     {
@@ -20,7 +20,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
       method: 'GET',
     }
   );
-  */
+  
   const {
     loginPageImage,
     signInFormTextTop,
