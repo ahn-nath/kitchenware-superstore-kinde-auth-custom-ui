@@ -106,7 +106,7 @@ const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
         </div>
       
       ) : clientId == 'c41376bd84c24244b3122dd41cd154ba' ? (
-        <div className='container-2'>
+        <div>
           {/* Python app content */}
           <h1>Hello this is the structure an styling for the second app - Python app</h1>
 
