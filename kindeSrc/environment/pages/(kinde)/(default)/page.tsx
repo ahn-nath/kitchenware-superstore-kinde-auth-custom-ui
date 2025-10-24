@@ -1,85 +1,213 @@
-"use server";
+'use server';
 
-import React from "react";
-import { renderToString } from "react-dom/server.browser";
 import {
-  getKindeRequiredCSS,
-  getKindeRequiredJS,
-  getKindeNonce,
   getKindeWidget,
-  getKindeCSRF,
-  getLogoUrl,
-  getSVGFaviconUrl,
-  setKindeDesignerCustomProperties
-} from "@kinde/infrastructure";
+  fetch,
+  type KindePageEvent,
+} from '@kinde/infrastructure';
+import React from 'react';
+import { renderToString } from 'react-dom/server.browser';
+import Layout from '../../layout';
 
-export const pageSettings = {
-  bindings: {
-    "kinde.env": {}
-  }
-};
+const DefaultPage: React.FC<KindePageEvent> = async ({ context, request }) => {
+  let clientId = request.authUrlParams?.clientId || null;
 
-const Layout = async ({request, context}) => {
+  
+  const res = await fetch(
+    'https://cdn.builder.io/api/v3/content/login-page-data?apiKey=c065718cfdf849a89015b311c8d3185e&sort.createdDate=-1',
+    {
+      headers: {},
+      method: 'GET',
+    }
+  );
+  
+  const {
+    loginPageImage,
+    signInFormTextTop,
+    signupFormTextTop,
+    signInFormTextBottom,
+    signupFormTextBottom,
+  } = res?.data?.results?.[0]?.data || {};
+  const isUserOnLoginOrRegisterPage = request?.route?.flow;
+  console.log('res', context, request)
   return (
-    <html lang={request.locale.lang} dir={request.locale.isRtl ? "rtl" : "ltr"}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="noindex" />
-        <meta name="csrf-token" content={getKindeCSRF()} />
-        <title>{context.widget.content.page_title}</title>
-        <link rel="icon" href={getSVGFaviconUrl()} type="image/svg+xml" />
-        {getKindeRequiredCSS()}
-        {getKindeRequiredJS()}
-        <style nonce={getKindeNonce()}>
-          {`:root {
-            ${setKindeDesignerCustomProperties({
-              baseBackgroundColor: "#fff",
-              baseLinkColor: "#230078",
-              buttonBorderRadius: "0.5rem",
-              primaryButtonBackgroundColor: "#230078",
-              primaryButtonColor: "#fff",
-              inputBorderRadius: "0.5rem"
-            })}}
-          `}
-        </style>
-        <style nonce={getKindeNonce()}>
-          {`
-            :root {
-              --kinde-base-color: rgb(12, 0, 32);
-              --kinde-base-font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Arial, Segoe UI, Roboto, sans-serif;
-            }
-            
-            .c-container {
-              padding: 1.5rem;
-              display: grid;
-              gap: 230px;
-            }
-            
-            .c-widget {
-              max-width: 400px;
-              width: 100%;
-              margin: 0px auto;
-            }
-          `}
-        </style>
-      </head>
-      <body>
-        <div data-kinde-root="/admin" className="c-container">
-          <header className="c-header">
-            <img src={getLogoUrl()} alt={context.widget.content.logo_alt} />
-          </header>
-          <main>
-            <div className="c-widget">
-              <h1>{context.widget.content.heading}</h1>
-              <p>{context.widget.content.description}</p>
-              <div>{getKindeWidget()}</div>
+    <Layout
+      context={context}
+      request={request}
+      props={res?.data?.results?.[0]?.data}
+    >
+      {/* Example of conditional rendering based on environment variable */}
+      {clientId == 'ca3c184c80c740bd842777bceee2df74' ? (
+        
+        <div className='container'>
+          {/* Next app content */}
+
+          <h1>Hello this is the structure an styling for the first app - Next app</h1>
+
+          { /* Displaying request and context for debugging purposes 
+          <pre>{JSON.stringify(request, null, 2)}</pre>
+          <pre>{JSON.stringify(context, null, 2)}</pre>
+          */}
+          <h2> Client ID: {request.authUrlParams?.clientId || 'Not available'}</h2>
+
+          <div className='login-form-wrapper'>
+            {signInFormTextTop && isUserOnLoginOrRegisterPage === 'login' && (
+              <div
+                className='signInFormTextTopText'
+                dangerouslySetInnerHTML={{
+                  __html: `${signInFormTextTop}`,
+                }}
+              />
+            )}
+            {signupFormTextTop && isUserOnLoginOrRegisterPage === 'register' && (
+              <div
+                className='signupFormTextTopText'
+                dangerouslySetInnerHTML={{
+                  __html: `${signupFormTextTop}`,
+                }}
+              />
+            )}
+            <div className='login-form'>
+              {context.widget.content.heading && (
+                <h2 className='heading'>{context.widget.content.heading}</h2>
+              )}
+              <p className='description'>{context.widget.content.description}</p>
+              {getKindeWidget()}
             </div>
-          </main>
+            {signInFormTextBottom && isUserOnLoginOrRegisterPage === 'login' && (
+              <div
+                className='signInFormTextBottomText'
+                dangerouslySetInnerHTML={{
+                  __html: `${signInFormTextBottom}`,
+                }}
+              />
+            )}
+            {signupFormTextBottom &&
+              isUserOnLoginOrRegisterPage === 'register' && (
+                <div
+                  className='signupFormTextBottom'
+                  dangerouslySetInnerHTML={{
+                    __html: `${signupFormTextBottom}`,
+                  }}
+                />
+              )}
+          </div>
+          {loginPageImage && (
+            <div className='side-panel'>
+              <picture>
+                <img
+                  className='side-panel-image'
+                  src={loginPageImage}
+                  alt='image'
+                />
+              </picture>
+            </div>
+          )}
         </div>
-      </body>
-    </html>
+      
+      ) : clientId == 'c41376bd84c24244b3122dd41cd154ba' ? (
+        <div>
+          {/* Python app content */}
+          <h1>Hello this is the structure an styling for the second app - Python app</h1>
+
+          { /* Displaying request and context for debugging purposes 
+          <pre>{JSON.stringify(request, null, 2)}</pre>
+          <pre>{JSON.stringify(context, null, 2)}</pre>
+          */}
+
+          <table>
+            <tr>
+              <th>Company</th>
+              <th>Contact</th>
+              <th>Country</th>
+            </tr>
+            <tr>
+              <td>Alfreds Futterkiste</td>
+              <td>Maria Anders</td>
+              <td>Germany</td>
+            </tr>
+            <tr>
+              <td>Centro comercial Moctezuma</td>
+              <td>Francisco Chang</td>
+              <td>Venezuela</td>
+            </tr>
+          </table>
+
+          <h2> Client ID: {request.authUrlParams?.clientId || 'Not available'}</h2>
+
+
+          <div className='login-form-wrapper'>
+            {signInFormTextTop && isUserOnLoginOrRegisterPage === 'login' && (
+              <div
+                className='signInFormTextTopText'
+                dangerouslySetInnerHTML={{
+                  __html: `${signInFormTextTop}`,
+                }}
+              />
+            )}
+            {signupFormTextTop && isUserOnLoginOrRegisterPage === 'register' && (
+              <div
+                className='signupFormTextTopText'
+                dangerouslySetInnerHTML={{
+                  __html: `${signupFormTextTop}`,
+                }}
+              />
+            )}
+            <div className='login-form'>
+              {context.widget.content.heading && (
+                <h2 className='heading'>{context.widget.content.heading}</h2>
+              )}
+              <p className='description'>{context.widget.content.description}</p>
+              {getKindeWidget()}
+            </div>
+            {signInFormTextBottom && isUserOnLoginOrRegisterPage === 'login' && (
+              <div
+                className='signInFormTextBottomText'
+                dangerouslySetInnerHTML={{
+                  __html: `${signInFormTextBottom}`,
+                }}
+              />
+            )}
+            {signupFormTextBottom &&
+              isUserOnLoginOrRegisterPage === 'register' && (
+                <div
+                  className='signupFormTextBottom'
+                  dangerouslySetInnerHTML={{
+                    __html: `${signupFormTextBottom}`,
+                  }}
+                />
+              )}
+          </div>
+          {loginPageImage && (
+            <div className='side-panel'>
+              <picture>
+                <img
+                  className='side-panel-image'
+                  src={loginPageImage}
+                  alt='image'
+                />
+              </picture>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className='container'>
+          <h1>Welcome to the Kinde Auth Custom UI</h1>
+          <p>This is a default page for Kinde authentication.</p>
+          <h2>Client ID: {request.authUrlParams?.clientId || 'Not available'}</h2>
+          <div className='login-form-wrapper'>
+            {getKindeWidget()}
+          </div>
+        </div>
+      )}
+
+
+    </Layout>
   );
 };
 
-export default Layout;
+// Page Component
+export default async function Page(event: KindePageEvent): Promise<string> {
+  const page = await DefaultPage(event);
+  return renderToString(page);
+}
